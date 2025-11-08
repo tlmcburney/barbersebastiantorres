@@ -1,0 +1,20 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        gold: {
+          DEFAULT: '#D4AF37',
+          light: '#E5C158',
+          dark: '#B8941F',
+        },
+      },
+      fontFamily: {
+        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        serif: ['Georgia', 'Times New Roman', 'serif'],
+      },
+    },
+  },
+  plugins: [],
+};

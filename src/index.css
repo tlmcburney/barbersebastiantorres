@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom fonts - using system fonts for performance */
+@layer base {
+  html {
+    background-color: #000000;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+}
+
+/* Custom color variables */
+:root {
+  --gold: #D4AF37;
+  --gold-light: #E5C158;
+  --gold-dark: #B8941F;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Custom component styles */
+@layer components {
+  /* Gold color utility */
+  .text-gold {
+    color: var(--gold);
+  }
+
+  .bg-gold {
+    background-color: var(--gold);
+  }
+
+  .border-gold {
+    border-color: var(--gold);
+  }
+
+  /* Primary button - gold with black text */
+  .btn-primary {
+    @apply bg-gold text-black font-semibold px-8 py-3 rounded-sm uppercase tracking-wider;
+    @apply hover:bg-gold-light transition-all duration-300;
+    @apply shadow-lg hover:shadow-xl hover:scale-105;
+  }
+
+  /* Secondary button - outlined gold */
+  .btn-secondary {
+    @apply border-2 border-gold text-gold font-semibold px-8 py-3 rounded-sm uppercase tracking-wider;
+    @apply hover:bg-gold hover:text-black transition-all duration-300;
+  }
+
+  /* Section title styling */
+  .section-title {
+    @apply text-4xl md:text-5xl font-serif text-center mb-8 text-white;
+  }
+
+  /* Service card */
+  .service-card {
+    @apply bg-zinc-900 p-8 rounded-lg;
+    @apply hover:bg-zinc-800 transition-all duration-300;
+    @apply border border-zinc-800 hover:border-gold;
+  }
+
+  /* Gallery item */
+  .gallery-item {
+    @apply transition-all duration-300;
+  }
+
+  /* Fade on scroll utility */
+  .fade-on-scroll {
+    @apply opacity-0;
+  }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
