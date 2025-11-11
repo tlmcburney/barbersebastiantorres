@@ -5,18 +5,14 @@ interface GalleryProps {
 }
 
 const galleryImages = [
-  '/images/gallery/work-1.jpg',
-  '/images/gallery/work-2.jpg',
-  '/images/gallery/work-3.jpg',
-  '/images/gallery/work-4.jpg',
-  '/images/gallery/work-5.jpg',
-  '/images/gallery/work-6.jpg',
-  '/images/gallery/work-7.jpg',
-  '/images/gallery/work-8.jpg',
-  '/images/gallery/work-9.jpg',
-  '/images/gallery/work-10.jpg',
-  '/images/gallery/work-11.jpg',
-  '/images/gallery/work-12.jpg',
+  '/images/F8735A20-DD0A-412D-BAB5-F43F333784F8.jpeg',
+  '/images/68B6D779-3A85-4156-8FA0-9E20E9F21FF5_4_5005_c.jpeg',
+  '/images/7BD988CF-55D5-4704-8F4D-3B25B791A79F.png',
+  '/images/89A47E19-EC82-4BFB-A151-CECB175683C1.png',
+  '/images/E53C2E5E-BEAD-4824-8ECF-7DBA7E2A3927.png',
+  '/images/1181254A-2AD7-45E1-B468-1734239BAD12_4_5005_c.jpeg',
+  '/images/9375B635-EB1A-4E2C-8F0F-8C4D5EB10662.png',
+  '/images/15CCF54C-B40E-472C-84E0-5508CBDAAFDC.png',
 ]
 
 const Gallery: React.FC<GalleryProps> = ({ onImageClick }) => {

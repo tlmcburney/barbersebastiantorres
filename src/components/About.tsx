@@ -10,7 +10,7 @@ const About: React.FC = () => {
           <div className="relative">
             <div className="aspect-[4/5] bg-zinc-900 rounded-lg overflow-hidden">
               <img
-                src="/images/branding/sebastian-profile.jpg"
+                src="/images/F8735A20-DD0A-412D-BAB5-F43F333784F8.jpeg"
                 alt="Barber Sebastian Torres"
                 className="w-full h-full object-cover"
               />
