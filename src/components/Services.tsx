@@ -68,7 +68,7 @@ const Services: React.FC = () => {
               </p>
 
               <button
-                onClick={() => window.open('INSERT_GHL_CALENDAR_LINK_HERE', '_blank')}
+                onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
                 className="btn-secondary w-full"
               >
                 Book Now

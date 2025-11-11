@@ -22,7 +22,7 @@ const BookingSection: React.FC = () => {
           </p>
 
           <button
-            onClick={() => window.open('INSERT_GHL_CALENDAR_LINK_HERE', '_blank')}
+            onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
             className="btn-primary text-xl px-16 py-6 transform hover:scale-105 transition-all duration-300"
           >
             Schedule Now

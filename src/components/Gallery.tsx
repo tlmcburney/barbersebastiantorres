@@ -4,17 +4,19 @@ interface GalleryProps {
   onImageClick: (index: number) => void
 }
 
-// REPLACE: Add actual gallery images showcasing Sebastian's work
-// Images should show: modern fades, classic gentleman's cuts, beard sculpting, hot shaves, before/afters
 const galleryImages = [
-  'https://images.pexels.com/photos/1570807/pexels-photo-1570807.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/1570807/pexels-photo-1570807.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=800',
+  '/images/gallery/work-1.jpg',
+  '/images/gallery/work-2.jpg',
+  '/images/gallery/work-3.jpg',
+  '/images/gallery/work-4.jpg',
+  '/images/gallery/work-5.jpg',
+  '/images/gallery/work-6.jpg',
+  '/images/gallery/work-7.jpg',
+  '/images/gallery/work-8.jpg',
+  '/images/gallery/work-9.jpg',
+  '/images/gallery/work-10.jpg',
+  '/images/gallery/work-11.jpg',
+  '/images/gallery/work-12.jpg',
 ]
 
 const Gallery: React.FC<GalleryProps> = ({ onImageClick }) => {

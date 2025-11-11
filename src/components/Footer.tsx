@@ -19,25 +19,25 @@ const Footer: React.FC = () => {
             <h4 className="text-xl font-semibold mb-6 text-gold">Contact</h4>
             <div className="space-y-4 text-gray-300">
               <a
-                href="tel:3105550123"
+                href="tel:3108827779"
                 className="flex items-center justify-center md:justify-start gap-3 hover:text-gold transition-colors"
               >
                 <Phone className="w-5 h-5 text-gold" />
-                <span>(310) 555-0123</span>
+                <span>(310) 882-7779</span>
               </a>
               <a
-                href="sms:3105550123"
+                href="sms:3108827779"
                 className="flex items-center justify-center md:justify-start gap-3 hover:text-gold transition-colors"
               >
                 <MessageSquare className="w-5 h-5 text-gold" />
-                <span>Text: (310) 555-0123</span>
+                <span>Text: (310) 882-7779</span>
               </a>
               <a
-                href="mailto:hello@sebastiantorres.com"
+                href="mailto:sebastiantorres92@yahoo.com"
                 className="flex items-center justify-center md:justify-start gap-3 hover:text-gold transition-colors"
               >
                 <Mail className="w-5 h-5 text-gold" />
-                <span>hello@sebastiantorres.com</span>
+                <span>sebastiantorres92@yahoo.com</span>
               </a>
               <div className="flex items-center justify-center md:justify-start gap-3">
                 <MapPin className="w-5 h-5 text-gold" />
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
             <h4 className="text-xl font-semibold mb-6 text-gold">Connect</h4>
             <div className="flex justify-center md:justify-end gap-4 mb-6">
               <a
-                href="https://instagram.com/sebastiantorres"
+                href="https://www.instagram.com/thetorresbarbershop/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-black transition-all duration-300"
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
               </a>
             </div>
             <button
-              onClick={() => window.open('INSERT_GHL_CALENDAR_LINK_HERE', '_blank')}
+              onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
               className="btn-primary w-full md:w-auto"
             >
               Book Appointment

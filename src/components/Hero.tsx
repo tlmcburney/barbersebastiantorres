@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
         </p>
 
         <button
-          onClick={() => window.open('INSERT_GHL_CALENDAR_LINK_HERE', '_blank')}
+          onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
           className="btn-primary text-lg px-12 py-4 mb-6"
         >
           Book Your Appointment

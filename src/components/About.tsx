@@ -10,7 +10,7 @@ const About: React.FC = () => {
           <div className="relative">
             <div className="aspect-[4/5] bg-zinc-900 rounded-lg overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/1319460/pexels-photo-1319460.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/images/branding/sebastian-profile.jpg"
                 alt="Barber Sebastian Torres"
                 className="w-full h-full object-cover"
               />
@@ -47,7 +47,7 @@ const About: React.FC = () => {
             </div>
 
             <button
-              onClick={() => window.open('INSERT_GHL_CALENDAR_LINK_HERE', '_blank')}
+              onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
               className="btn-primary mt-6"
             >
               Book With Sebastian
