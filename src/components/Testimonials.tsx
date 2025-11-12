@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight, Star, ExternalLink } from 'lucide-react'
 
 const GOOGLE_REVIEW_COUNT = 70
 const GOOGLE_RATING = 4.9
-const GOOGLE_REVIEWS_URL = 'https://g.co/kgs/1k65Grg'
+const GOOGLE_REVIEWS_URL = 'https://www.google.com/search?q=Barber+Sebastian+Torres+West+Hollywood'
 
 interface Testimonial {
   name: string

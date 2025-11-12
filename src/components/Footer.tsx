@@ -1,5 +1,5 @@
 import React from 'react'
-import { Instagram, Mail, Phone, MapPin, MessageSquare, Scissors } from 'lucide-react'
+import { Mail, Phone, MapPin, MessageSquare, Scissors } from 'lucide-react'
 
 const Footer: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
           <p className="text-gold text-sm tracking-widest uppercase mt-2">My Cuts Breed Confidence</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="text-center md:text-left">
             <h4 className="text-xl font-semibold mb-6 text-gold">Contact</h4>
             <div className="space-y-4 text-gray-300">
@@ -46,41 +46,18 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="text-center md:text-right">
-            <h4 className="text-xl font-semibold mb-6 text-gold">Connect</h4>
-            <div className="flex justify-center md:justify-end gap-4 mb-6">
-              <a
-                href="https://www.instagram.com/thetorresbarbershop/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-black transition-all duration-300"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-6 h-6" />
-              </a>
-            </div>
-            <button
-              onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
-              className="btn-primary w-full md:w-auto"
-            >
-              Book Appointment
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          <div className="text-center lg:text-left">
+          <div className="text-center">
             <h4 className="text-xl font-semibold mb-6 text-gold">Hours of Operation</h4>
             <div className="space-y-3 text-gray-300">
-              <div className="flex justify-between max-w-xs mx-auto lg:mx-0">
+              <div className="flex justify-between max-w-xs mx-auto">
                 <span className="font-semibold text-white">Tuesday - Friday</span>
                 <span className="text-gold">10am - 7pm</span>
               </div>
-              <div className="flex justify-between max-w-xs mx-auto lg:mx-0">
+              <div className="flex justify-between max-w-xs mx-auto">
                 <span className="font-semibold text-white">Saturday</span>
                 <span className="text-gold">9am - 5pm</span>
               </div>
-              <div className="flex justify-between max-w-xs mx-auto lg:mx-0">
+              <div className="flex justify-between max-w-xs mx-auto">
                 <span className="font-semibold text-white">Sunday - Monday</span>
                 <span className="text-gray-500">Closed</span>
               </div>

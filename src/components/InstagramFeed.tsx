@@ -2,16 +2,16 @@ import React from 'react'
 import { Instagram, ExternalLink } from 'lucide-react'
 
 const InstagramFeed: React.FC = () => {
-  const instagramHandle = 'thetorresbarbershop'
+  const instagramHandle = 'barbersebastiantorres'
   const instagramUrl = `https://www.instagram.com/${instagramHandle}/`
 
   const instagramPosts = [
-    '/images/F8735A20-DD0A-412D-BAB5-F43F333784F8.jpeg',
+    '/images/1181254A-2AD7-45E1-B468-1734239BAD12_4_5005_c.jpeg',
     '/images/68B6D779-3A85-4156-8FA0-9E20E9F21FF5_4_5005_c.jpeg',
-    '/images/7BD988CF-55D5-4704-8F4D-3B25B791A79F.png',
-    '/images/89A47E19-EC82-4BFB-A151-CECB175683C1.png',
-    '/images/E53C2E5E-BEAD-4824-8ECF-7DBA7E2A3927.png',
-    '/images/1181254A-2AD7-45E1-B468-1734239BAD12_4_5005_c.jpeg'
+    '/images/F8735A20-DD0A-412D-BAB5-F43F333784F8.jpeg',
+    '/images/D266C471-DA6C-4442-A194-F905DB37EB0A.jpeg',
+    '/images/15CCF54C-B40E-472C-84E0-5508CBDAAFDC.png',
+    '/images/25295758-CF93-432E-BB31-66FE5B44C743.png'
   ]
 
   return (
