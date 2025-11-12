@@ -89,6 +89,8 @@ const BeforeAfterSlider: React.FC<SliderProps> = ({ beforeImage, afterImage, tit
             alt="After"
             className="absolute inset-0 w-full h-full object-cover"
             draggable={false}
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -101,6 +103,8 @@ const BeforeAfterSlider: React.FC<SliderProps> = ({ beforeImage, afterImage, tit
             alt="Before"
             className="absolute inset-0 w-full h-full object-cover"
             draggable={false}
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

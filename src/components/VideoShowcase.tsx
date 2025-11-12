@@ -228,16 +228,13 @@ const FullscreenModal: React.FC<FullscreenModalProps> = ({ videoUrl, title, onCl
 
 const VideoShowcase: React.FC = () => {
   const [fullscreenVideo, setFullscreenVideo] = useState<{ url: string; title: string } | null>(null);
-  const [videoError, setVideoError] = useState<string>('');
 
-  // Video files from public directory
-  const video1Url = '/videos/@barbersebastiantorres-#4.mp4';
-  const video2Url = '/videos/ARREGLOS.mp4';
+  const featuredVideoUrl = '/videos/@barbersebastiantorres-#4.mp4';
 
   return (
     <>
       <section className="py-24 px-4 bg-black fade-on-scroll opacity-0">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="section-title mb-12 text-gold">The Craft In Action</h2>
 
           <p className="text-center text-gray-300 text-lg mb-12 max-w-3xl mx-auto">
@@ -245,31 +242,20 @@ const VideoShowcase: React.FC = () => {
             This is mastery in motion.
           </p>
 
-          {/* Side-by-Side Video Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <VideoPlayer
-              videoUrl={video1Url}
-              title="Precision Fade"
-              onFullscreen={() => setFullscreenVideo({ url: video1Url, title: 'Precision Fade' })}
-            />
-            <VideoPlayer
-              videoUrl={video2Url}
-              title="Classic Cut"
-              onFullscreen={() => setFullscreenVideo({ url: video2Url, title: 'Classic Cut' })}
-            />
-          </div>
+          <VideoPlayer
+            videoUrl={featuredVideoUrl}
+            title="Precision Fade"
+            onFullscreen={() => setFullscreenVideo({ url: featuredVideoUrl, title: 'Precision Fade' })}
+          />
 
-          {/* Note for admin if videos aren't loading */}
           <div className="mt-8 text-center">
             <p className="text-gray-400 text-sm">
               Note: If videos aren't playing, please upload video files through the Admin Dashboard.
             </p>
           </div>
-
         </div>
       </section>
 
-      {/* Fullscreen Modal */}
       {fullscreenVideo && (
         <FullscreenModal
           videoUrl={fullscreenVideo.url}

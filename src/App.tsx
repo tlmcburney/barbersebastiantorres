@@ -8,7 +8,6 @@ import Testimonials from './components/Testimonials'
 import Gallery from './components/Gallery'
 import Services from './components/Services'
 import FAQ from './components/FAQ'
-import ContactForm from './components/ContactForm'
 import BookingSection from './components/BookingSection'
 import Footer from './components/Footer'
 import Lightbox from './components/Lightbox'
@@ -60,10 +59,9 @@ function App() {
       <Testimonials />
       <Gallery onImageClick={openLightbox} />
       <Services />
-      <FAQ />
-      <ContactForm />
       <BookingSection />
       <InstagramFeed />
+      <FAQ />
       <Footer />
 
       <FloatingBookButton />
