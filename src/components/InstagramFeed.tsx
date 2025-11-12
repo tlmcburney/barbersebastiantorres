@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { Instagram, ExternalLink } from 'lucide-react'
-import { supabase } from '../lib/supabase'
 
 interface InstagramPost {
   id: string
   image_url: string
-  post_order: number
+  permalink: string
+  timestamp: string
+}
+
+interface InstagramAPIResponse {
+  success: boolean
+  posts: InstagramPost[]
+  usingFallback?: boolean
+  message?: string
+  error?: string
 }
 
 const InstagramFeed: React.FC = () => {
@@ -13,6 +21,7 @@ const InstagramFeed: React.FC = () => {
   const instagramUrl = `https://www.instagram.com/${instagramHandle}/`
   const [posts, setPosts] = useState<InstagramPost[]>([])
   const [loading, setLoading] = useState(true)
+  const [usingFallback, setUsingFallback] = useState(false)
 
   useEffect(() => {
     loadInstagramPosts()
@@ -20,33 +29,72 @@ const InstagramFeed: React.FC = () => {
 
   const loadInstagramPosts = async () => {
     try {
-      const { data, error } = await supabase
-        .from('instagram_posts')
-        .select('*')
-        .order('post_order')
-        .limit(6)
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+      const apiUrl = `${supabaseUrl}/functions/v1/instagram-feed`
 
-      if (error) throw error
-      setPosts(data || [])
+      const response = await fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch Instagram posts')
+      }
+
+      const data: InstagramAPIResponse = await response.json()
+
+      if (data.success && data.posts) {
+        setPosts(data.posts)
+        setUsingFallback(data.usingFallback || false)
+      }
     } catch (error) {
       console.error('Error loading Instagram posts:', error)
+      // Set fallback images on error
+      setUsingFallback(true)
+      setPosts([
+        {
+          id: '1',
+          image_url: '/images/1181254A-2AD7-45E1-B468-1734239BAD12_4_5005_c.jpeg',
+          permalink: instagramUrl,
+          timestamp: new Date().toISOString()
+        },
+        {
+          id: '2',
+          image_url: '/images/68B6D779-3A85-4156-8FA0-9E20E9F21FF5_4_5005_c.jpeg',
+          permalink: instagramUrl,
+          timestamp: new Date().toISOString()
+        },
+        {
+          id: '3',
+          image_url: '/images/F8735A20-DD0A-412D-BAB5-F43F333784F8.jpeg',
+          permalink: instagramUrl,
+          timestamp: new Date().toISOString()
+        },
+        {
+          id: '4',
+          image_url: '/images/D266C471-DA6C-4442-A194-F905DB37EB0A.jpeg',
+          permalink: instagramUrl,
+          timestamp: new Date().toISOString()
+        },
+        {
+          id: '5',
+          image_url: '/images/15CCF54C-B40E-472C-84E0-5508CBDAAFDC.png',
+          permalink: instagramUrl,
+          timestamp: new Date().toISOString()
+        },
+        {
+          id: '6',
+          image_url: '/images/25295758-CF93-432E-BB31-66FE5B44C743.png',
+          permalink: instagramUrl,
+          timestamp: new Date().toISOString()
+        }
+      ])
     } finally {
       setLoading(false)
     }
   }
-
-  const fallbackImages = [
-    '/images/1181254A-2AD7-45E1-B468-1734239BAD12_4_5005_c.jpeg',
-    '/images/68B6D779-3A85-4156-8FA0-9E20E9F21FF5_4_5005_c.jpeg',
-    '/images/F8735A20-DD0A-412D-BAB5-F43F333784F8.jpeg',
-    '/images/D266C471-DA6C-4442-A194-F905DB37EB0A.jpeg',
-    '/images/15CCF54C-B40E-472C-84E0-5508CBDAAFDC.png',
-    '/images/25295758-CF93-432E-BB31-66FE5B44C743.png'
-  ]
-
-  const displayImages = posts.length > 0
-    ? posts.map(post => post.image_url)
-    : fallbackImages
 
   return (
     <section className="py-24 px-4 bg-black fade-on-scroll opacity-0">
@@ -80,16 +128,16 @@ const InstagramFeed: React.FC = () => {
         ) : (
           <>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {displayImages.map((image, index) => (
+              {posts.map((post, index) => (
                 <a
-                  key={index}
-                  href={instagramUrl}
+                  key={post.id}
+                  href={post.permalink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative aspect-square overflow-hidden rounded-lg border-2 border-zinc-800 hover:border-gold transition-all duration-300"
                 >
                   <img
-                    src={image}
+                    src={post.image_url}
                     alt={`Instagram post ${index + 1}`}
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
@@ -105,10 +153,10 @@ const InstagramFeed: React.FC = () => {
               ))}
             </div>
 
-            {posts.length === 0 && (
+            {usingFallback && (
               <div className="mt-8 text-center">
                 <p className="text-gray-500 text-sm">
-                  Note: Using placeholder images. Upload custom images through the Admin Dashboard.
+                  Note: Showing cached posts. Live Instagram integration requires API configuration.
                 </p>
               </div>
             )}

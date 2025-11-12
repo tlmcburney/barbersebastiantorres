@@ -14,16 +14,31 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, title, onFullscreen
   const [isMuted, setIsMuted] = useState(true);
   const [showControls, setShowControls] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const togglePlay = () => {
-    if (videoRef.current) {
+    if (videoRef.current && !hasError) {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        videoRef.current.play();
+        videoRef.current.play().catch(() => {
+          setHasError(true);
+        });
       }
       setIsPlaying(!isPlaying);
     }
+  };
+
+  const handleVideoLoaded = () => {
+    setIsLoading(false);
+    setHasError(false);
+  };
+
+  const handleVideoError = () => {
+    setIsLoading(false);
+    setHasError(true);
+    console.error('Video failed to load:', videoUrl);
   };
 
   const toggleMute = () => {
@@ -84,30 +99,56 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl, title, onFullscreen
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
-      <video
-        ref={videoRef}
-        className="w-full h-full object-cover"
-        src={videoUrl}
-        loop
-        muted={isMuted}
-        playsInline
-        onTimeUpdate={handleTimeUpdate}
-        onClick={togglePlay}
-      />
+      {hasError ? (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-zinc-900 text-center p-6">
+          <div className="text-gold text-6xl mb-4">⚠</div>
+          <p className="text-white text-lg font-semibold mb-2">{title}</p>
+          <p className="text-gray-400 text-sm mb-4">Video file unavailable</p>
+          <p className="text-gray-500 text-xs max-w-md">
+            The video file is currently a placeholder and needs to be replaced with actual video content.
+            Please upload a valid MP4 file through the Admin Dashboard.
+          </p>
+        </div>
+      ) : (
+        <>
+          {isLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-zinc-900">
+              <div className="text-center">
+                <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gold mb-4"></div>
+                <p className="text-gray-400 text-sm">Loading video...</p>
+              </div>
+            </div>
+          )}
 
-      {/* Play/Pause Overlay - Shows when paused or on hover */}
-      <div
-        className={`absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300 cursor-pointer ${
-          isPlaying && !showControls ? 'opacity-0' : 'opacity-100'
-        }`}
-        onClick={togglePlay}
-      >
-        {!isPlaying && (
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gold/90 border-4 border-white hover:bg-gold hover:scale-110 transition-all duration-300">
-            <Play className="w-8 h-8 text-black ml-1" />
+          <video
+            ref={videoRef}
+            className="w-full h-full object-cover"
+            src={videoUrl}
+            loop
+            muted={isMuted}
+            playsInline
+            onTimeUpdate={handleTimeUpdate}
+            onClick={togglePlay}
+            onLoadedData={handleVideoLoaded}
+            onError={handleVideoError}
+            preload="metadata"
+          />
+
+          {/* Play/Pause Overlay - Shows when paused or on hover */}
+          <div
+            className={`absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300 cursor-pointer ${
+              isPlaying && !showControls ? 'opacity-0' : 'opacity-100'
+            }`}
+            onClick={togglePlay}
+          >
+            {!isPlaying && (
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gold/90 border-4 border-white hover:bg-gold hover:scale-110 transition-all duration-300">
+                <Play className="w-8 h-8 text-black ml-1" />
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </>
+      )}
 
       {/* Custom Controls */}
       <div
@@ -258,7 +299,7 @@ const VideoShowcase: React.FC = () => {
 
           <div className="mt-8 text-center">
             <p className="text-gray-400 text-sm">
-              Note: Videos are placeholder files (20 bytes each). Please upload actual video files through the Admin Dashboard to enable video playback. The issue is that the current video files are too small to be valid video files.
+              Note: Current video files are placeholders. Upload actual MP4 video files to display Sebastian's work in action.
             </p>
           </div>
         </div>

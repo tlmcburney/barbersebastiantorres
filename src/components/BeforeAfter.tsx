@@ -29,7 +29,20 @@ interface SliderProps {
 const BeforeAfterSlider: React.FC<SliderProps> = ({ beforeImage, afterImage, title }) => {
   const [sliderPosition, setSliderPosition] = useState(50)
   const [isDragging, setIsDragging] = useState(false)
+  const [imagesLoaded, setImagesLoaded] = useState({ before: false, after: false })
+  const [imageErrors, setImageErrors] = useState({ before: false, after: false })
   const containerRef = useRef<HTMLDivElement>(null)
+
+  const handleImageLoad = (type: 'before' | 'after') => {
+    setImagesLoaded(prev => ({ ...prev, [type]: true }))
+  }
+
+  const handleImageError = (type: 'before' | 'after') => {
+    setImageErrors(prev => ({ ...prev, [type]: true }))
+    console.error(`Failed to load ${type} image:`, type === 'before' ? beforeImage : afterImage)
+  }
+
+  const allImagesLoaded = imagesLoaded.before && imagesLoaded.after
 
   const handleMove = (clientX: number) => {
     if (!containerRef.current) return
@@ -81,16 +94,27 @@ const BeforeAfterSlider: React.FC<SliderProps> = ({ beforeImage, afterImage, tit
 
       <div
         ref={containerRef}
-        className="relative w-full aspect-[4/5] overflow-hidden rounded-lg cursor-ew-resize select-none border-4 border-gold/30"
+        className="relative w-full aspect-[4/5] overflow-hidden rounded-lg cursor-ew-resize select-none border-4 border-gold/30 bg-zinc-900"
       >
+        {!allImagesLoaded && !imageErrors.before && !imageErrors.after && (
+          <div className="absolute inset-0 flex items-center justify-center bg-zinc-900">
+            <div className="text-center">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gold mb-4"></div>
+              <p className="text-gray-400 text-sm">Loading transformation...</p>
+            </div>
+          </div>
+        )}
+
         <div className="absolute inset-0">
           <img
             src={afterImage}
             alt="After"
-            className="absolute inset-0 w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${allImagesLoaded ? 'opacity-100' : 'opacity-0'}`}
             draggable={false}
-            loading="lazy"
+            loading="eager"
             decoding="async"
+            onLoad={() => handleImageLoad('after')}
+            onError={() => handleImageError('after')}
           />
         </div>
 
@@ -101,10 +125,12 @@ const BeforeAfterSlider: React.FC<SliderProps> = ({ beforeImage, afterImage, tit
           <img
             src={beforeImage}
             alt="Before"
-            className="absolute inset-0 w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${allImagesLoaded ? 'opacity-100' : 'opacity-0'}`}
             draggable={false}
-            loading="lazy"
+            loading="eager"
             decoding="async"
+            onLoad={() => handleImageLoad('before')}
+            onError={() => handleImageError('before')}
           />
         </div>
 

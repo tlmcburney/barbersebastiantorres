@@ -28,14 +28,14 @@ const LocationMap: React.FC = () => {
           </h3>
           <div className="bg-black border-2 border-gold/30 rounded-lg overflow-hidden h-[500px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.8579654859815!2d-118.37450082346662!3d34.09757271711879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf3ec156d72f%3A0x8e1f5b1d1c1d1c1d!2s8000%20Sunset%20Blvd%2C%20Los%20Angeles%2C%20CA%2090046!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.858!2d-118.3745!3d34.0976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf07a7648bb5%3A0x91c2c4e3c23f7e52!2s8000%20Sunset%20Blvd%20%23B200%2C%20West%20Hollywood%2C%20CA%2090046!5e0!3m2!1sen!2sus!4v1731427200000!5m2!1sen!2sus"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Barber Sebastian Torres Location"
+              title="Barber Sebastian Torres Location - 8000 Sunset Blvd, West Hollywood"
             />
           </div>
         </div>
