@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Maximize2 } from 'lucide-react';
+import { getPublicVideoUrl } from '../lib/supabase';
 
 interface VideoPlayerProps {
   videoUrl: string;
@@ -228,10 +229,10 @@ const FullscreenModal: React.FC<FullscreenModalProps> = ({ videoUrl, title, onCl
 const VideoShowcase: React.FC = () => {
   const [fullscreenVideo, setFullscreenVideo] = useState<{ url: string; title: string } | null>(null);
 
-  // Video files from the public folder
-  // TO ADD MORE VIDEOS: Drop .mov files into /public/videos/ and add the path here
-  const video1Url = '/videos/@barbersebastiantorres-#4.mov';
-  const video2Url = '/videos/ARREGLOS.mov';
+  // Video files from Supabase Storage
+  // TO ADD MORE VIDEOS: Upload .mov files to Supabase Storage 'videos' bucket
+  const video1Url = getPublicVideoUrl('@barbersebastiantorres-#4.mov');
+  const video2Url = getPublicVideoUrl('ARREGLOS.mov');
 
   return (
     <>
