@@ -228,10 +228,10 @@ const FullscreenModal: React.FC<FullscreenModalProps> = ({ videoUrl, title, onCl
 const VideoShowcase: React.FC = () => {
   const [fullscreenVideo, setFullscreenVideo] = useState<{ url: string; title: string } | null>(null);
 
-  // TODO: Replace these placeholder URLs with your actual uploaded video URLs
-  // After uploading your videos, copy the URLs and paste them here
-  const video1Url = 'https://your-supabase-url.supabase.co/storage/v1/object/public/videos/craft-videos/video1.mov';
-  const video2Url = 'https://your-supabase-url.supabase.co/storage/v1/object/public/videos/craft-videos/video2.mov';
+  // Video files from the public folder
+  // TO ADD MORE VIDEOS: Drop .mov files into /public/videos/ and add the path here
+  const video1Url = '/videos/@barbersebastiantorres-#4.mov';
+  const video2Url = '/videos/ARREGLOS.mov';
 
   return (
     <>
@@ -258,17 +258,6 @@ const VideoShowcase: React.FC = () => {
             />
           </div>
 
-          {/* Upload Instructions */}
-          <div className="mt-12 p-6 bg-zinc-900 border border-gold/20 rounded-lg">
-            <h3 className="text-gold text-xl font-semibold mb-3">How to Add Your Videos:</h3>
-            <ol className="text-gray-300 space-y-2 list-decimal list-inside">
-              <li>Use the VideoUploader component (temporarily add it to your page)</li>
-              <li>Upload your two .MOV video files</li>
-              <li>Copy the generated URLs from the success message</li>
-              <li>Replace the placeholder URLs in VideoShowcase.tsx (lines 209-210)</li>
-              <li>Your videos will automatically play on scroll with custom controls!</li>
-            </ol>
-          </div>
         </div>
       </section>
 
