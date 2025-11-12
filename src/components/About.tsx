@@ -13,6 +13,10 @@ const About: React.FC = () => {
                 src="/images/F8735A20-DD0A-412D-BAB5-F43F333784F8.jpeg"
                 alt="Barber Sebastian Torres"
                 className="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
+                width="600"
+                height="750"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-gold rounded-lg -z-10"></div>

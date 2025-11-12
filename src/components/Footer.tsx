@@ -64,29 +64,32 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div>
-            <h4 className="text-xl font-semibold mb-6 text-gold text-center md:text-left">Location</h4>
-            <div className="bg-black border-2 border-gold/30 rounded-lg overflow-hidden h-[300px] mb-4">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.8579654859815!2d-118.37450082346662!3d34.09757271711879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf3ec156d72f%3A0x8e1f5b1d1c1d1c1d!2s8000%20Sunset%20Blvd%2C%20Los%20Angeles%2C%20CA%2090046!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Barber Sebastian Torres Location"
-              />
+          <div className="text-center md:text-left">
+            <h4 className="text-xl font-semibold mb-6 text-gold">Location</h4>
+            <div className="space-y-4">
+              <div className="bg-zinc-900 border-2 border-gold/30 rounded-lg p-6">
+                <div className="flex items-start gap-3 text-gray-300 mb-4">
+                  <MapPin className="w-5 h-5 text-gold flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold text-white mb-1">Visit Our Shop</p>
+                    <p>8000 Sunset Blvd B200 Suite 4</p>
+                    <p>Los Angeles, CA 90046</p>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-400">
+                  Located in the heart of West Hollywood with convenient parking
+                </p>
+              </div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=8000+Sunset+Blvd+B200+Suite+4+Los+Angeles+CA+90046"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary inline-flex items-center justify-center gap-2 w-full"
+              >
+                <Navigation className="w-4 h-4" />
+                Get Directions
+              </a>
             </div>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=8000+Sunset+Blvd+B200+Suite+4+Los+Angeles+CA+90046"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary inline-flex items-center justify-center gap-2 w-full"
-            >
-              <Navigation className="w-4 h-4" />
-              Get Directions
-            </a>
           </div>
         </div>
 

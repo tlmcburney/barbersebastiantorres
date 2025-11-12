@@ -113,6 +113,8 @@ const BeforeAfterSlider: React.FC<SliderProps> = ({ beforeImage, afterImage, tit
             draggable={false}
             loading="eager"
             decoding="async"
+            width="600"
+            height="750"
             onLoad={() => handleImageLoad('after')}
             onError={() => handleImageError('after')}
           />
@@ -129,6 +131,8 @@ const BeforeAfterSlider: React.FC<SliderProps> = ({ beforeImage, afterImage, tit
             draggable={false}
             loading="eager"
             decoding="async"
+            width="600"
+            height="750"
             onLoad={() => handleImageLoad('before')}
             onError={() => handleImageError('before')}
           />
