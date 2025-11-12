@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div className="text-center md:text-left">
+          <div className="text-center">
             <h4 className="text-xl font-semibold mb-6 text-gold">Contact</h4>
             <div className="space-y-4 text-gray-300">
               <a
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="text-center md:text-left">
+          <div className="text-center">
             <h4 className="text-xl font-semibold mb-6 text-gold">Location</h4>
             <div className="space-y-4">
               <div className="bg-zinc-900 border-2 border-gold/30 rounded-lg p-6">
