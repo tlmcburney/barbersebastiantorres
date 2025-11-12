@@ -49,7 +49,7 @@ const Services: React.FC = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-black border-2 border-zinc-800 p-8 rounded-lg hover:border-gold transition-all duration-300 group"
+              className="bg-black border-2 border-zinc-800 p-8 rounded-lg hover:border-gold transition-all duration-300 group flex flex-col"
             >
               <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gold/10 border-2 border-gold text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all duration-300">
                 {service.icon}
@@ -63,13 +63,13 @@ const Services: React.FC = () => {
                 {service.price}
               </p>
 
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-gray-300 mb-6 leading-relaxed flex-grow">
                 {service.description}
               </p>
 
               <button
                 onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
-                className="btn-secondary w-full"
+                className="btn-secondary w-full mt-auto"
               >
                 Book Now
               </button>

@@ -46,24 +46,6 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="text-center">
-            <h4 className="text-xl font-semibold mb-6 text-gold">Hours of Operation</h4>
-            <div className="space-y-3 text-gray-300">
-              <div className="flex justify-between max-w-xs mx-auto">
-                <span className="font-semibold text-white">Tuesday - Friday</span>
-                <span className="text-gold">10am - 7pm</span>
-              </div>
-              <div className="flex justify-between max-w-xs mx-auto">
-                <span className="font-semibold text-white">Saturday</span>
-                <span className="text-gold">9am - 5pm</span>
-              </div>
-              <div className="flex justify-between max-w-xs mx-auto">
-                <span className="font-semibold text-white">Sunday - Monday</span>
-                <span className="text-gray-500">Closed</span>
-              </div>
-            </div>
-          </div>
-
           <div className="text-center md:text-right">
             <h4 className="text-xl font-semibold mb-6 text-gold">Connect</h4>
             <div className="flex justify-center md:justify-end gap-4 mb-6">
@@ -83,6 +65,39 @@ const Footer: React.FC = () => {
             >
               Book Appointment
             </button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <div className="text-center lg:text-left">
+            <h4 className="text-xl font-semibold mb-6 text-gold">Hours of Operation</h4>
+            <div className="space-y-3 text-gray-300">
+              <div className="flex justify-between max-w-xs mx-auto lg:mx-0">
+                <span className="font-semibold text-white">Tuesday - Friday</span>
+                <span className="text-gold">10am - 7pm</span>
+              </div>
+              <div className="flex justify-between max-w-xs mx-auto lg:mx-0">
+                <span className="font-semibold text-white">Saturday</span>
+                <span className="text-gold">9am - 5pm</span>
+              </div>
+              <div className="flex justify-between max-w-xs mx-auto lg:mx-0">
+                <span className="font-semibold text-white">Sunday - Monday</span>
+                <span className="text-gray-500">Closed</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-black border-2 border-gold/30 rounded-lg overflow-hidden h-[300px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52901.45397583746!2d-118.39932179999999!3d34.090033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf1a8a0d0c93%3A0x4e1f4a0c5f0a5e8e!2sWest%20Hollywood%2C%20CA!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="West Hollywood Location"
+            />
           </div>
         </div>
 

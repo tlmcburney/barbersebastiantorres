@@ -3,14 +3,12 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
 import VideoShowcase from './components/VideoShowcase'
-import BeforeAfter from './components/BeforeAfter'
 import InstagramFeed from './components/InstagramFeed'
 import Testimonials from './components/Testimonials'
 import Gallery from './components/Gallery'
 import Services from './components/Services'
 import FAQ from './components/FAQ'
 import ContactForm from './components/ContactForm'
-import LocationMap from './components/LocationMap'
 import BookingSection from './components/BookingSection'
 import Footer from './components/Footer'
 import Lightbox from './components/Lightbox'
@@ -59,15 +57,13 @@ function App() {
       <About />
 
       <VideoShowcase />
-      <BeforeAfter />
-      <InstagramFeed />
       <Testimonials />
       <Gallery onImageClick={openLightbox} />
       <Services />
       <FAQ />
       <ContactForm />
-      <LocationMap />
       <BookingSection />
+      <InstagramFeed />
       <Footer />
 
       <FloatingBookButton />

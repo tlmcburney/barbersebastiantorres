@@ -229,10 +229,9 @@ const FullscreenModal: React.FC<FullscreenModalProps> = ({ videoUrl, title, onCl
 const VideoShowcase: React.FC = () => {
   const [fullscreenVideo, setFullscreenVideo] = useState<{ url: string; title: string } | null>(null);
 
-  // Video files from Supabase Storage
-  // TO ADD MORE VIDEOS: Upload .mov files to Supabase Storage 'videos' bucket
-  const video1Url = getPublicVideoUrl('@barbersebastiantorres-#4.mov');
-  const video2Url = getPublicVideoUrl('ARREGLOS.mov');
+  // Video files from public directory
+  const video1Url = '/videos/@barbersebastiantorres-#4.mp4';
+  const video2Url = '/videos/ARREGLOS.mp4';
 
   return (
     <>
