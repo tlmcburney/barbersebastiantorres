@@ -9,6 +9,7 @@ import Services from './components/Services'
 import BookingSection from './components/BookingSection'
 import Footer from './components/Footer'
 import Lightbox from './components/Lightbox'
+import VideoUploader from './components/VideoUploader'
 
 function App() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
@@ -48,6 +49,12 @@ function App() {
       <Header />
       <Hero />
       <About />
+
+      {/* TEMPORARY: Video Upload Section - Remove after uploading videos */}
+      <section className="py-12 px-4 bg-zinc-900">
+        <VideoUploader />
+      </section>
+
       <VideoShowcase />
       <Testimonials />
       <Gallery onImageClick={openLightbox} />
