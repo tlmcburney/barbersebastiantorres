@@ -9,7 +9,6 @@ import Gallery from './components/Gallery'
 import Services from './components/Services'
 import FAQ from './components/FAQ'
 import ContactForm from './components/ContactForm'
-import LocationMap from './components/LocationMap'
 import BookingSection from './components/BookingSection'
 import Footer from './components/Footer'
 import Lightbox from './components/Lightbox'
@@ -63,7 +62,6 @@ function App() {
       <Services />
       <FAQ />
       <ContactForm />
-      <LocationMap />
       <BookingSection />
       <InstagramFeed />
       <Footer />
