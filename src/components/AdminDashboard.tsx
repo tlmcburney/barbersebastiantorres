@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
-import { LogOut, Image, Star, Briefcase, Video, Plus, Trash2, Save, X } from 'lucide-react'
+import { LogOut, Image, Star, Briefcase, Video, Plus, Trash2, Save, X, Instagram } from 'lucide-react'
 import type { GalleryImage, Testimonial, Service, Video as VideoType } from '../lib/supabase'
+import InstagramManager from './InstagramManager'
 
 interface AdminDashboardProps {
   onLogout: () => void
 }
 
 const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
-  const [activeTab, setActiveTab] = useState<'gallery' | 'testimonials' | 'services' | 'videos'>('gallery')
+  const [activeTab, setActiveTab] = useState<'gallery' | 'testimonials' | 'services' | 'videos' | 'instagram'>('gallery')
   const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([])
   const [testimonials, setTestimonials] = useState<Testimonial[]>([])
   const [services, setServices] = useState<Service[]>([])
@@ -171,6 +172,18 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
             <Video className="w-5 h-5" />
             <span>Videos</span>
           </button>
+
+          <button
+            onClick={() => setActiveTab('instagram')}
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg border-2 transition-colors ${
+              activeTab === 'instagram'
+                ? 'bg-gold text-black border-gold'
+                : 'bg-zinc-950 text-white border-zinc-800 hover:border-gold'
+            }`}
+          >
+            <Instagram className="w-5 h-5" />
+            <span>Instagram Feed</span>
+          </button>
         </div>
 
         {loading ? (
@@ -316,6 +329,8 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
                 </div>
               </div>
             )}
+
+            {activeTab === 'instagram' && <InstagramManager />}
           </div>
         )}
       </div>

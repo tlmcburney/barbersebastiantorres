@@ -228,6 +228,7 @@ const FullscreenModal: React.FC<FullscreenModalProps> = ({ videoUrl, title, onCl
 
 const VideoShowcase: React.FC = () => {
   const [fullscreenVideo, setFullscreenVideo] = useState<{ url: string; title: string } | null>(null);
+  const [videoError, setVideoError] = useState<string>('');
 
   // Video files from public directory
   const video1Url = '/videos/@barbersebastiantorres-#4.mp4';
@@ -256,6 +257,13 @@ const VideoShowcase: React.FC = () => {
               title="Classic Cut"
               onFullscreen={() => setFullscreenVideo({ url: video2Url, title: 'Classic Cut' })}
             />
+          </div>
+
+          {/* Note for admin if videos aren't loading */}
+          <div className="mt-8 text-center">
+            <p className="text-gray-400 text-sm">
+              Note: If videos aren't playing, please upload video files through the Admin Dashboard.
+            </p>
           </div>
 
         </div>
