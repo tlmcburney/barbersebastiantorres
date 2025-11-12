@@ -215,10 +215,10 @@ const ContactForm: React.FC = () => {
         <div className="mt-8 text-center">
           <p className="text-gray-400 mb-4">Or reach out directly:</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:3108827779" className="btn-secondary">
+            <a href="tel:4244845684" className="btn-secondary">
               Call Now
             </a>
-            <a href="sms:3108827779" className="btn-secondary">
+            <a href="sms:4244845684" className="btn-secondary">
               Send Text
             </a>
           </div>

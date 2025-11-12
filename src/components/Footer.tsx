@@ -19,18 +19,18 @@ const Footer: React.FC = () => {
             <h4 className="text-xl font-semibold mb-6 text-gold">Contact</h4>
             <div className="space-y-4 text-gray-300">
               <a
-                href="tel:3108827779"
+                href="tel:4244845684"
                 className="flex items-center justify-center md:justify-start gap-3 hover:text-gold transition-colors"
               >
                 <Phone className="w-5 h-5 text-gold" />
-                <span>(310) 882-7779</span>
+                <span>(424) 484-5684</span>
               </a>
               <a
-                href="sms:3108827779"
+                href="sms:4244845684"
                 className="flex items-center justify-center md:justify-start gap-3 hover:text-gold transition-colors"
               >
                 <MessageSquare className="w-5 h-5 text-gold" />
-                <span>Text: (310) 882-7779</span>
+                <span>Text: (424) 484-5684</span>
               </a>
               <a
                 href="mailto:sebastiantorres92@yahoo.com"
@@ -39,9 +39,9 @@ const Footer: React.FC = () => {
                 <Mail className="w-5 h-5 text-gold" />
                 <span>sebastiantorres92@yahoo.com</span>
               </a>
-              <div className="flex items-center justify-center md:justify-start gap-3">
-                <MapPin className="w-5 h-5 text-gold" />
-                <span>West Hollywood, CA</span>
+              <div className="flex items-start justify-center md:justify-start gap-3">
+                <MapPin className="w-5 h-5 text-gold flex-shrink-0 mt-1" />
+                <span>8000 Sunset Blvd B200 Suite 4<br />Los Angeles, CA 90046</span>
               </div>
             </div>
           </div>
@@ -68,18 +68,18 @@ const Footer: React.FC = () => {
             <h4 className="text-xl font-semibold mb-6 text-gold text-center md:text-left">Location</h4>
             <div className="bg-black border-2 border-gold/30 rounded-lg overflow-hidden h-[300px] mb-4">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52901.45397583746!2d-118.39932179999999!3d34.090033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf1a8a0d0c93%3A0x4e1f4a0c5f0a5e8e!2sWest%20Hollywood%2C%20CA!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.8579654859815!2d-118.37450082346662!3d34.09757271711879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf3ec156d72f%3A0x8e1f5b1d1c1d1c1d!2s8000%20Sunset%20Blvd%2C%20Los%20Angeles%2C%20CA%2090046!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="West Hollywood Location"
+                title="Barber Sebastian Torres Location"
               />
             </div>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=West+Hollywood+CA"
+              href="https://www.google.com/maps/search/?api=1&query=8000+Sunset+Blvd+B200+Suite+4+Los+Angeles+CA+90046"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary inline-flex items-center justify-center gap-2 w-full"

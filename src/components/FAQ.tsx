@@ -99,13 +99,13 @@ const FAQ: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:3108827779"
+              href="tel:4244845684"
               className="btn-secondary px-8 py-3"
             >
               Call Now
             </a>
             <a
-              href="sms:3108827779"
+              href="sms:4244845684"
               className="btn-secondary px-8 py-3"
             >
               Send a Text
