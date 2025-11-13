@@ -7,54 +7,94 @@ export default function VideoUploader() {
   const [uploadStatus, setUploadStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
   const [uploadedUrl, setUploadedUrl] = useState('');
+  const [uploadProgress, setUploadProgress] = useState(0);
+
+  const uploadWithTimeout = async (file: File, timeoutMs: number = 300000) => {
+    return Promise.race([
+      supabase.storage
+        .from('videos')
+        .upload(`${Date.now()}-${file.name}`, file, {
+          cacheControl: '3600',
+          upsert: false
+        }),
+      new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error('Upload timeout after 5 minutes')), timeoutMs)
+      )
+    ]);
+  };
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
-    // Validate file type
+    event.target.value = '';
+
     if (!file.type.startsWith('video/')) {
       setUploadStatus('error');
-      setMessage('Please select a video file');
+      setMessage('Please select a video file (MP4, MOV, WEBM)');
       return;
     }
 
-    // Validate file size (100MB max)
     if (file.size > 104857600) {
       setUploadStatus('error');
-      setMessage('File size must be less than 100MB');
+      setMessage(`File size must be less than 100MB. Your file is ${(file.size / 1048576).toFixed(2)}MB`);
       return;
     }
 
     setUploading(true);
     setUploadStatus('idle');
     setMessage('');
+    setUploadProgress(0);
+
+    const uploadStartTime = Date.now();
+    const progressInterval = setInterval(() => {
+      const elapsed = Date.now() - uploadStartTime;
+      const estimatedTotal = (file.size / 1024 / 1024) * 2000;
+      const progress = Math.min(95, (elapsed / estimatedTotal) * 100);
+      setUploadProgress(Math.round(progress));
+    }, 500);
 
     try {
-      // Upload to Supabase storage
-      const fileName = `${Date.now()}-${file.name}`;
-      const { data, error } = await supabase.storage
-        .from('videos')
-        .upload(fileName, file, {
-          cacheControl: '3600',
-          upsert: false
-        });
+      const { data, error } = await uploadWithTimeout(file);
 
-      if (error) throw error;
+      clearInterval(progressInterval);
+      setUploadProgress(100);
 
-      // Get public URL
+      if (error) {
+        throw error;
+      }
+
+      if (!data) {
+        throw new Error('Upload succeeded but no data returned');
+      }
+
       const { data: { publicUrl } } = supabase.storage
         .from('videos')
         .getPublicUrl(data.path);
 
       setUploadedUrl(publicUrl);
       setUploadStatus('success');
-      setMessage(`Video uploaded successfully! Path: ${data.path}`);
+      setMessage(`Video uploaded successfully! File: ${file.name}`);
     } catch (error: any) {
+      clearInterval(progressInterval);
+      setUploadProgress(0);
       setUploadStatus('error');
-      setMessage(`Upload failed: ${error.message}`);
+
+      let errorMessage = 'Upload failed: ';
+      if (error.message.includes('timeout')) {
+        errorMessage += 'Upload took too long. Please try again or use a smaller file.';
+      } else if (error.message.includes('network')) {
+        errorMessage += 'Network error. Please check your connection and try again.';
+      } else if (error.statusCode === 413) {
+        errorMessage += 'File is too large for upload.';
+      } else {
+        errorMessage += error.message || 'Unknown error occurred';
+      }
+
+      setMessage(errorMessage);
       console.error('Upload error:', error);
     } finally {
+      clearInterval(progressInterval);
       setUploading(false);
     }
   };
@@ -87,11 +127,21 @@ export default function VideoUploader() {
                 <Upload className="w-12 h-12 text-gray-400 mb-4" />
               )}
               <span className="text-lg font-medium text-gray-700 mb-2">
-                {uploading ? 'Uploading...' : 'Click to upload video'}
+                {uploading ? `Uploading... ${uploadProgress}%` : 'Click to upload video'}
               </span>
               <span className="text-sm text-gray-500">
                 MP4, MOV, WEBM up to 100MB
               </span>
+              {uploading && (
+                <div className="w-full max-w-md mt-4">
+                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-blue-500 transition-all duration-500 ease-out"
+                      style={{ width: `${uploadProgress}%` }}
+                    />
+                  </div>
+                </div>
+              )}
             </label>
           </div>
 
