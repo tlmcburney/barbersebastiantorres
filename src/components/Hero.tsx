@@ -19,10 +19,10 @@ const Hero: React.FC = () => {
       <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10 pt-20">
         <div className="flex flex-col items-center">
           <p
-            className="text-2xl md:text-3xl lg:text-4xl mb-4 text-white tracking-wide"
+            className="text-2xl md:text-3xl lg:text-4xl mb-4 text-white tracking-widest"
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontWeight: 300,
+              fontFamily: '"Cinzel", serif',
+              fontWeight: 400,
               textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
             }}
           >
@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
           <h1
             className="text-6xl md:text-8xl lg:text-9xl text-white"
             style={{
-              fontFamily: '"Great Vibes", cursive',
+              fontFamily: '"Allura", cursive',
               fontWeight: 400,
               textShadow: '3px 3px 6px rgba(0,0,0,0.9)'
             }}
