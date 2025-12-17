@@ -302,6 +302,18 @@ const VideoShowcase: React.FC = () => {
               Note: Current video files are placeholders. Upload actual MP4 video files to display Sebastian's work in action.
             </p>
           </div>
+
+          <div className="text-center mt-12">
+            <p className="text-gray-300 text-lg mb-6">
+              Experience this level of craftsmanship yourself
+            </p>
+            <button
+              onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
+              className="btn-primary px-10 py-4 text-lg"
+            >
+              Book Your Appointment
+            </button>
+          </div>
         </div>
       </section>
 

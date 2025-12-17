@@ -53,9 +53,18 @@ const FAQ: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <h2 className="section-title mb-16 text-gold">Frequently Asked Questions</h2>
 
-        <p className="text-center text-gray-300 text-lg mb-12">
+        <p className="text-center text-gray-300 text-lg mb-8">
           Have questions? We have got answers. If you do not see your question here, feel free to reach out.
         </p>
+
+        <div className="text-center mb-12">
+          <button
+            onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
+            className="btn-primary px-10 py-4 text-lg"
+          >
+            Book With Sebastian
+          </button>
+        </div>
 
         <div className="space-y-4">
           {faqData.map((faq, index) => (

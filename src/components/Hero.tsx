@@ -4,13 +4,30 @@ import { ChevronDown } from 'lucide-react'
 const Hero: React.FC = () => {
   return (
     <section className="relative h-screen overflow-hidden bg-black">
-      <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10 pt-20">
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 tracking-wide text-white">
-          Barber Sebastian Torres
-        </h1>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/videos/ARREGLOS.mp4" type="video/mp4" />
+      </video>
 
-        <p className="text-3xl md:text-5xl lg:text-6xl mb-12 text-gold font-light tracking-wider">
-          LA Barber Shop
+      <div className="absolute inset-0 bg-black/30 z-[1]"></div>
+
+      <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10 pt-20">
+        <div className="mb-8">
+          <p className="text-2xl md:text-3xl lg:text-4xl mb-4 text-white font-bold tracking-wider uppercase" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            The Official Barbershop of
+          </p>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl text-white font-bold tracking-wide" style={{ fontFamily: '"Playfair Display", serif', fontStyle: 'italic', textShadow: '3px 3px 6px rgba(0,0,0,0.9)' }}>
+            Barber Sebastian Torres
+          </h1>
+        </div>
+
+        <p className="text-xl md:text-2xl lg:text-3xl mb-12 text-white font-semibold tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+          The Official Website of Barber Sebastian Torres
         </p>
 
         <button
@@ -20,7 +37,7 @@ const Hero: React.FC = () => {
           Book Your Appointment
         </button>
 
-        <p className="text-3xl md:text-5xl lg:text-6xl text-gold font-semibold tracking-wide">
+        <p className="text-3xl md:text-5xl lg:text-6xl text-gold font-semibold tracking-wide" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
           My Cuts Breed Confidence
         </p>
 

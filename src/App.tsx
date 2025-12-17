@@ -54,13 +54,12 @@ function App() {
       <Header />
       <Hero />
       <About />
-
-      <VideoShowcase />
+      <Services />
       <Testimonials />
       <Gallery onImageClick={openLightbox} />
-      <Services />
-      <BookingSection />
+      <VideoShowcase />
       <InstagramFeed />
+      <BookingSection />
       <FAQ />
       <Footer />
 

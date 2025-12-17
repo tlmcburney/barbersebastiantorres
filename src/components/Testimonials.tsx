@@ -132,6 +132,18 @@ const Testimonials: React.FC = () => {
             ))}
           </div>
         </div>
+
+        <div className="text-center mt-12">
+          <p className="text-gray-300 text-lg mb-6">
+            Experience the transformation yourself
+          </p>
+          <button
+            onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
+            className="btn-primary px-10 py-4 text-lg"
+          >
+            Book With Sebastian
+          </button>
+        </div>
       </div>
     </section>
   )
