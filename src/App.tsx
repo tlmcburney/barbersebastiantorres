@@ -7,6 +7,8 @@ import InstagramFeed from './components/InstagramFeed'
 import Testimonials from './components/Testimonials'
 import Gallery from './components/Gallery'
 import Services from './components/Services'
+import ServiceGallery from './components/ServiceGallery'
+import ServiceModal from './components/ServiceModal'
 import FAQ from './components/FAQ'
 import BookingSection from './components/BookingSection'
 import Footer from './components/Footer'
@@ -18,6 +20,7 @@ import ScrollProgress from './components/ScrollProgress'
 function App() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
+  const [selectedCategory, setSelectedCategory] = useState<any>(null)
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth'
@@ -55,6 +58,7 @@ function App() {
       <Hero />
       <About />
       <Services />
+      <ServiceGallery onCategoryClick={setSelectedCategory} />
       <Testimonials />
       <Gallery onImageClick={openLightbox} />
       <VideoShowcase />
@@ -70,6 +74,13 @@ function App() {
         <Lightbox
           startIndex={lightboxIndex}
           onClose={() => setLightboxOpen(false)}
+        />
+      )}
+
+      {selectedCategory && (
+        <ServiceModal
+          category={selectedCategory}
+          onClose={() => setSelectedCategory(null)}
         />
       )}
     </div>
