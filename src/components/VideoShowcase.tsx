@@ -270,7 +270,7 @@ const FullscreenModal: React.FC<FullscreenModalProps> = ({ videoUrl, title, onCl
 const VideoShowcase: React.FC = () => {
   const [fullscreenVideo, setFullscreenVideo] = useState<{ url: string; title: string } | null>(null);
 
-  const video1Url = '/videos/@barbersebastiantorres-#4.mp4';
+  const video1Url = '/videos/barbersebastiantorres-4.mp4';
   const video2Url = '/videos/ARREGLOS.mp4';
 
   return (
