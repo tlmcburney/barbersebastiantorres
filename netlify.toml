@@ -1,0 +1,18 @@
+# Netlify configuration for Vite + React SPA
+
+[build]
+  # Command to build your site
+  command = "npm run build"
+
+  # Directory where the built files are located
+  publish = "dist"
+
+# Redirect all requests to index.html for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables (configure these in Netlify dashboard)
+# VITE_SUPABASE_URL
+# VITE_SUPABASE_ANON_KEY
