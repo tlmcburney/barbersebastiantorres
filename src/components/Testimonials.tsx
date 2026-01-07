@@ -9,33 +9,39 @@ interface Testimonial {
   name: string
   text: string
   rating: number
+  date: string
 }
 
 const testimonials: Testimonial[] = [
   {
-    name: 'Marcus J.',
-    text: 'Sebastian doesn\'t just cut hair—he transforms how you see yourself. I walked out feeling like a completely different person. Sharp, confident, ready for anything.',
-    rating: 5
+    name: 'J.M. Barraza, Esq.',
+    text: 'From the moment I sat down, Sebastian was professional and made me feel at ease. He took the time to really listen to what I wanted and offered expert advice. The result exceeded my expectations. It\'s his thoroughness and great personality that will make me a repeat customer.',
+    rating: 5,
+    date: '3 weeks ago'
   },
   {
-    name: 'David R.',
-    text: 'Best barber in West Hollywood, hands down. The attention to detail is unmatched. Every line is perfect. I won\'t go anywhere else.',
-    rating: 5
+    name: 'Devon Brooks',
+    text: 'Sebastian is not only talented, but friendly and easy-going. He took the time to understand my hair goals and texture. He checked in throughout, offering professional guidance while making sure I felt confident with every decision. The space is clean and welcoming, with prices that are very fair for the quality you receive.',
+    rating: 5,
+    date: '3 months ago'
   },
   {
-    name: 'James K.',
-    text: 'The hot lather shave was an experience. It\'s not just grooming—it\'s self-care. Sebastian makes you feel like you\'re worth the investment.',
-    rating: 5
+    name: 'Jason Cornish',
+    text: 'Sebastian Torres is hands-down the best barber I\'ve ever had. He has an incredible eye for detail and style. What really sets him apart is the experience—he listens to exactly what you want and offers helpful suggestions. You leave looking sharp, feeling confident, and already thinking about your next appointment.',
+    rating: 5,
+    date: '4 months ago'
   },
   {
-    name: 'Alex M.',
-    text: 'I\'ve been going to Sebastian for two years now. Consistent quality, great conversation, and I always leave looking my absolute best.',
-    rating: 5
+    name: 'Emancipatious Opprecious',
+    text: 'This was by far the most DETAILED haircut I\'ve ever received. Sebastian pays attention to details other barbers don\'t because they\'re rushing people through. If you want a well executed cut that will have you looking fly, book Sebastian!',
+    rating: 5,
+    date: '1 month ago'
   },
   {
-    name: 'Ryan T.',
-    text: 'Finally found a barber who gets it. Modern style, classic technique. Sebastian is the real deal.',
-    rating: 5
+    name: 'Brad Brisbin',
+    text: 'Sebastian is hyper-focused on detail! I\'ve been going to him for over 3 years. EVERY single haircut is Movie Star status. I\'ve never once had a subpar cut. I highly recommend him.',
+    rating: 5,
+    date: '5 months ago'
   }
 ]
 
@@ -96,6 +102,9 @@ const Testimonials: React.FC = () => {
 
             <p className="text-gold text-center font-semibold text-xl">
               — {testimonials[currentIndex].name}
+            </p>
+            <p className="text-gray-400 text-center text-sm mt-2">
+              {testimonials[currentIndex].date}
             </p>
           </div>
 
