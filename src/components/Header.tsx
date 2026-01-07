@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Scissors, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -31,14 +31,13 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center" role="img" aria-label="Logo">
-              <Scissors className="w-6 h-6 text-black" />
-            </div>
+            <img
+              src="/images/7BD988CF-55D5-4704-8F4D-3B25B791A79F.png"
+              alt="Barber Sebastian Torres Logo"
+              className="h-16 md:h-20 w-auto object-contain"
+            />
 
             <div>
-              <h1 className="text-xl md:text-2xl font-serif text-white leading-tight">
-                Barber Sebastian Torres
-              </h1>
               <p className="text-xs md:text-sm text-gold tracking-wide">
                 LA Barbershop
               </p>
