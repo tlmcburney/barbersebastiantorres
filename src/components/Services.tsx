@@ -37,7 +37,7 @@ const services: Service[] = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="py-24 px-4 bg-zinc-950 fade-on-scroll opacity-0">
+    <section id="services" className="py-24 px-4 bg-black fade-on-scroll opacity-0">
       <div className="max-w-7xl mx-auto">
         <h2 className="section-title mb-16 text-gold">Services</h2>
 
