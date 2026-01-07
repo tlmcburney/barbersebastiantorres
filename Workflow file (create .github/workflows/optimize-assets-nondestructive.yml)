@@ -1,0 +1,36 @@
+name: Optimize assets (non-destructive)
+
+on:
+  push:
+    branches: [ "optimize-assets" ]
+  workflow_dispatch: {}
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Install optimization tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg pngquant optipng webp libwebp-dev libavif-bin jpegoptim || true
+
+      - name: Make script executable
+        run: chmod +x ./scripts/optimize_assets_non_destructive.sh
+
+      - name: Run optimizer script
+        run: ./scripts/optimize_assets_non_destructive.sh
+
+      - name: Commit optimized assets
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: "github-actions[bot]"
+          author_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          message: "chore: add non-destructive optimized assets"
+          add: "public/optimized public/images public/videos"
+          branch: "optimize-assets"
