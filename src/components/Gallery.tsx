@@ -19,7 +19,7 @@ const Gallery: React.FC<GalleryProps> = ({ onImageClick }) => {
   return (
     <section id="gallery" className="py-24 px-4 bg-black fade-on-scroll opacity-0">
       <div className="max-w-7xl mx-auto">
-        <h2 className="section-title mb-16 text-gold">The Work Speaks</h2>
+        <h2 className="section-title mb-16 text-gold">Recent Work</h2>
 
         <p className="text-center text-gray-300 text-lg mb-12 max-w-3xl mx-auto">
           Every cut tells a story. Browse through transformations that showcase precision, style, and confidence.

@@ -1,140 +1,95 @@
-import React, { useEffect, useState } from 'react'
-import { supabase } from '../lib/supabase'
-import { ChevronRight } from 'lucide-react'
+import React from 'react'
+import { Scissors, Sparkles, Square, TrendingDown, Grip, User } from 'lucide-react'
 
-// Define the structure of a service category
-interface ServiceCategory {
-  id: string
+interface CategoryTile {
   title: string
   description: string
-  cover_image: string
-  image_1: string
-  image_2: string
-  image_3: string
-  display_order: number
+  icon: React.ReactNode
 }
 
-// Props for the ServiceGallery component
 interface ServiceGalleryProps {
-  onCategoryClick: (category: ServiceCategory) => void
+  onCategoryClick: (category: CategoryTile) => void
 }
+
+const categories: CategoryTile[] = [
+  {
+    title: 'SKIN FADES (High/Mid/Low)',
+    description: 'Dramatic contrast between longer top and skin-level sides. Choose your fade height: high (near crown), mid (temple level), or low (above ear).',
+    icon: <Scissors className="w-12 h-12" />
+  },
+  {
+    title: 'SHADOW FADES',
+    description: 'Subtle shadow effect using clipper guards (0.5-2) rather than complete skin. Creates five o\'clock shadow appearance on sides.',
+    icon: <Sparkles className="w-12 h-12" />
+  },
+  {
+    title: 'TAPERS & DETAILS',
+    description: 'Precision sideburn work and clean lineup details. Perfect for professional looks requiring subtle sophistication.',
+    icon: <Square className="w-12 h-12" />
+  },
+  {
+    title: 'DROP FADES',
+    description: 'Modern technique creating rounded head profile. Fade drops from temple to mid-ear, adding dimension and shape.',
+    icon: <TrendingDown className="w-12 h-12" />
+  },
+  {
+    title: 'BEARD SCULPTING',
+    description: 'From subtle shadow to full sculpted beards. Line-ups, shaping, and hot towel finishing.',
+    icon: <Grip className="w-12 h-12" />
+  },
+  {
+    title: 'CLASSIC CUTS & BUZZ',
+    description: 'Timeless gentleman\'s cuts and clean buzz cuts for clients embracing simplicity.',
+    icon: <User className="w-12 h-12" />
+  }
+]
 
 const ServiceGallery: React.FC<ServiceGalleryProps> = ({ onCategoryClick }) => {
-  // State to store service categories fetched from database
-  const [categories, setCategories] = useState<ServiceCategory[]>([])
-  // State to track loading status
-  const [loading, setLoading] = useState(true)
-
-  // Fetch service categories from Supabase when component mounts
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('service_categories')
-          .select('*')
-          .order('display_order', { ascending: true })
-
-        if (error) {
-          console.error('Error fetching service categories:', error)
-          return
-        }
-
-        if (data) {
-          setCategories(data)
-        }
-      } catch (err) {
-        console.error('Error:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchCategories()
-  }, [])
-
-  // Show loading state while fetching data
-  if (loading) {
-    return (
-      <section className="py-24 px-4 bg-zinc-900">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="section-title mb-16 text-gold">View the Work</h2>
-          <div className="text-center text-gray-400">Loading services...</div>
-        </div>
-      </section>
-    )
-  }
-
   return (
     <section id="service-gallery" className="py-24 px-4 bg-zinc-900 fade-on-scroll opacity-0">
       <div className="max-w-7xl mx-auto">
-        {/* Section title */}
-        <h2 className="section-title mb-16 text-gold">View the Work</h2>
+        <h2 className="section-title mb-4 text-gold">Explore Different Styles</h2>
 
-        {/* Introduction text */}
-        <p className="text-center text-gray-300 text-lg mb-12 max-w-3xl mx-auto">
-          Explore our signature services. Each style represents precision craftsmanship and attention to detail.
+        <p className="text-center text-gray-300 text-xl mb-12">
+          Understanding your options
         </p>
 
-        {/* Grid of service category tiles */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category, index) => (
             <div
-              key={category.id}
+              key={index}
               className="group cursor-pointer fade-on-scroll opacity-0"
               onClick={() => onCategoryClick(category)}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Category tile card */}
-              <div className="relative overflow-hidden rounded-lg border-2 border-zinc-800 group-hover:border-gold transition-all duration-300 bg-black">
-                {/* Cover image container */}
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={category.cover_image}
-                    alt={category.title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  {/* Dark overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
-
-                  {/* View icon that appears on hover */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-16 h-16 rounded-full bg-gold flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                      <ChevronRight className="w-8 h-8 text-black" />
-                    </div>
+              <div className="relative overflow-hidden rounded-lg border-2 border-zinc-800 group-hover:border-gold group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 bg-black h-[300px] flex flex-col">
+                <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
+                  <div className="text-gold mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                    {category.icon}
                   </div>
-                </div>
 
-                {/* Category title and description */}
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gold mb-2 group-hover:text-yellow-400 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gold mb-3 group-hover:text-yellow-400 transition-colors duration-300">
                     {category.title}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed">
+
+                  <p className="text-gray-400 text-sm leading-relaxed">
                     {category.description}
                   </p>
-
-                  {/* "View Examples" call to action */}
-                  <div className="flex items-center mt-4 text-gray-500 group-hover:text-gold transition-colors duration-300">
-                    <span className="text-sm font-medium">View Examples</span>
-                    <ChevronRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Call to action at bottom of section */}
         <div className="text-center mt-16">
           <p className="text-gray-300 text-lg mb-6">
-            Ready to get your own custom look?
+            Not sure which style is right for you?
           </p>
           <button
             onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
             className="btn-primary px-10 py-4 text-lg"
           >
-            Book With Sebastian
+            Book a Consultation
           </button>
         </div>
       </div>
