@@ -104,8 +104,9 @@ const BookingSection: React.FC = () => {
             Step into the chair. Walk out with confidence.
           </p>
 
+          {/* TODO: Replace with actual Booksy URL from Sebastian */}
           <button
-            onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
+            onClick={() => window.open('INSERT_BOOKSY_LINK_HERE', '_blank')}
             className="btn-primary text-xl px-16 py-6 transform hover:scale-105 transition-all duration-300 mb-12"
           >
             Schedule Now

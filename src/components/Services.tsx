@@ -67,8 +67,9 @@ const Services: React.FC = () => {
                 {service.description}
               </p>
 
+              {/* TODO: Replace with actual Booksy URL from Sebastian */}
               <button
-                onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
+                onClick={() => window.open('INSERT_BOOKSY_LINK_HERE', '_blank')}
                 className="btn-secondary w-full mt-auto"
               >
                 Book Now

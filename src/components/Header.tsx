@@ -70,8 +70,9 @@ const Header: React.FC = () => {
             >
               Services
             </button>
+            {/* TODO: Replace with actual Booksy URL from Sebastian */}
             <button
-              onClick={() => window.open('INSERT_GHL_CALENDAR_LINK_HERE', '_blank')}
+              onClick={() => window.open('INSERT_BOOKSY_LINK_HERE', '_blank')}
               className="btn-primary py-2 px-6"
             >
               Book Now
@@ -113,8 +114,9 @@ const Header: React.FC = () => {
             >
               Services
             </button>
+            {/* TODO: Replace with actual Booksy URL from Sebastian */}
             <button
-              onClick={() => window.open('INSERT_GHL_CALENDAR_LINK_HERE', '_blank')}
+              onClick={() => window.open('INSERT_BOOKSY_LINK_HERE', '_blank')}
               className="btn-primary w-full py-3"
             >
               Book Now

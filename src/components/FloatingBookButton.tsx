@@ -18,7 +18,8 @@ const FloatingBookButton: React.FC = () => {
   }, [])
 
   const handleBooking = () => {
-    window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')
+    // TODO: Replace with actual Booksy URL from Sebastian
+    window.open('INSERT_BOOKSY_LINK_HERE', '_blank')
   }
 
   return (

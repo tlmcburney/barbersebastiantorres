@@ -60,8 +60,9 @@ const Gallery: React.FC<GalleryProps> = ({ onImageClick }) => {
           <p className="text-gray-300 text-lg mb-6">
             Ready to get your transformation?
           </p>
+          {/* TODO: Replace with actual Booksy URL from Sebastian */}
           <button
-            onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
+            onClick={() => window.open('INSERT_BOOKSY_LINK_HERE', '_blank')}
             className="btn-primary px-10 py-4 text-lg"
           >
             Book With Sebastian
