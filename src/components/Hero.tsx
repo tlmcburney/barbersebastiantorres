@@ -18,6 +18,8 @@ const Hero: React.FC = () => {
 
       <div className="absolute inset-0 bg-black/30 z-[1]"></div>
 
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-black z-[2] md:hidden"></div>
+
       <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10 pt-20">
         <div className="flex flex-col items-center">
           <p
@@ -42,7 +44,7 @@ const Hero: React.FC = () => {
           </h1>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
           <ChevronDown className="w-8 h-8 text-gold" />
         </div>
       </div>
