@@ -1,17 +1,17 @@
 import React from 'react'
-import { Mail, Phone, MapPin, MessageSquare, Scissors, Navigation } from 'lucide-react'
+import { Mail, Phone, MapPin, MessageSquare, Navigation } from 'lucide-react'
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-black py-16 px-4 border-t-2 border-gold/30">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold mb-4">
-            <Scissors className="w-8 h-8 text-black" />
+        <div className="text-center mb-8">
+          <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center mx-auto mb-3">
+            <span className="text-black font-bold text-xl">ST</span>
           </div>
-          <h3 className="font-serif text-3xl mb-2 text-gold">Barber Sebastian Torres</h3>
-          <p className="text-white text-lg">LA Barber Shop</p>
-          <p className="text-gold text-sm tracking-widest uppercase mt-2">My Cuts Breed Confidence</p>
+          <h2 className="text-2xl font-serif text-white mb-2">Barber Sebastian Torres</h2>
+          <p className="text-sm text-gold tracking-wide mb-2">LA Barber Shop</p>
+          <p className="text-lg font-semibold text-gold tracking-wider">i BOOST YOUR CONFIDENCE</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
