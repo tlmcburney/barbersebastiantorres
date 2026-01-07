@@ -46,7 +46,7 @@ const About: React.FC = () => {
 
             <div className="pt-4">
               <p className="text-gold font-semibold text-2xl leading-relaxed">
-                "This is where craft meets transformation. This is where you look as good as you feel."
+                "i BOOST YOUR CONFIDENCE"
               </p>
             </div>
 
