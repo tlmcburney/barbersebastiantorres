@@ -1,0 +1,256 @@
+#!/usr/bin/env bash
+# Non-destructive asset optimizer (improved)
+# - Writes optimized outputs to public/optimized/{images,videos}
+# - Skips files if optimized outputs already exist
+# - Skips files below configurable size thresholds
+# - Produces: optimized MP4 (H.264), WebM (VP9) for videos
+#             optimized PNG/JPEG, plus WebP/AVIF fallbacks for images
+#
+# Configurable via env vars:
+#  OUTPUT_DIR (default: public/optimized)
+#  MIN_SIZE_IMAGES (bytes, default: 30000 -> 30KB)
+#  MIN_SIZE_VIDEOS (bytes, default: 200000 -> 200KB)
+#  SKIP_IF_EXISTS (default: true)
+#  GENERATE_WEBM (default: true)
+#  GENERATE_AVIF (default: true)
+#  GENERATE_WEBP (default: true)
+#
+# Designed to run in CI (Ubuntu/GitHub Actions). Avoids re-processing already-created optimized assets.
+
+set -euo pipefail
+shopt -s nullglob
+
+# === Configuration ===
+OUTPUT_DIR="${OUTPUT_DIR:-public/optimized}"
+IMAGES_OUT_DIR="$OUTPUT_DIR/images"
+VIDEOS_OUT_DIR="$OUTPUT_DIR/videos"
+
+MIN_SIZE_IMAGES="${MIN_SIZE_IMAGES:-30000}"    # 30 KB
+MIN_SIZE_VIDEOS="${MIN_SIZE_VIDEOS:-200000}"   # 200 KB
+
+SKIP_IF_EXISTS="${SKIP_IF_EXISTS:-true}"
+GENERATE_WEBM="${GENERATE_WEBM:-true}"
+GENERATE_WEBP="${GENERATE_WEBP:-true}"
+GENERATE_AVIF="${GENERATE_AVIF:-true}"
+
+# VP9/AVIF tuning (adjust for speed vs size)
+VP9_CRF="${VP9_CRF:-36}"
+VP9_CPU_USED="${VP9_CPU_USED:-4}"   # higher => faster, lower quality
+AVIF_CQ="${AVIF_CQ:-32}"
+
+# ffmpeg CRF for H.264
+H264_CRF="${H264_CRF:-23}"
+H264_PRESET="${H264_PRESET:-slow}"
+
+# Helpers
+has() { command -v "$1" >/dev/null 2>&1; }
+
+mkdir -p "$IMAGES_OUT_DIR"
+mkdir -p "$VIDEOS_OUT_DIR"
+
+echo "Starting optimized asset generation"
+echo "Output directory: $OUTPUT_DIR"
+echo "Image min size: $MIN_SIZE_IMAGES bytes; Video min size: $MIN_SIZE_VIDEOS bytes"
+echo "Skip-if-exists: $SKIP_IF_EXISTS"
+echo ""
+
+# Utility: get filesize in bytes
+filesize() {
+  # Portable-ish: use stat -c%s on Linux; fallback to wc -c if needed
+  if stat --version >/dev/null 2>&1; then
+    stat -c%s "$1"
+  else
+    wc -c <"$1" | tr -d ' '
+  fi
+}
+
+# Utility: produce a safe optimized path
+optimized_path() {
+  local src="$1"
+  local out_dir="$2"
+  local base
+  base="$(basename "$src")"
+  echo "$out_dir/${base%.*}-optimized.${base##*.}"
+}
+
+# Counters
+processed_images=0
+skipped_images=0
+processed_videos=0
+skipped_videos=0
+failed=0
+
+# --- Videos ---
+echo "Processing videos..."
+for f in public/videos/*.mp4; do
+  [ -e "$f" ] || continue
+  size="$(filesize "$f")"
+  if [ "$size" -lt "$MIN_SIZE_VIDEOS" ]; then
+    echo "Skipping video (below threshold): $f ($(numfmt --to=si "$size") bytes)"
+    skipped_videos=$((skipped_videos+1))
+    continue
+  fi
+
+  base_name="$(basename "$f" .mp4)"
+  out_mp4="$VIDEOS_OUT_DIR/${base_name}-optimized.mp4"
+  out_webm="$VIDEOS_OUT_DIR/${base_name}-optimized.webm"
+
+  if [ "$SKIP_IF_EXISTS" = "true" ] && [ -e "$out_mp4" ]; then
+    echo "Optimized MP4 exists — skipping: $out_mp4"
+    skipped_videos=$((skipped_videos+1))
+  else
+    if has ffmpeg; then
+      echo "Re-encoding MP4: $f -> $out_mp4"
+      if ! ffmpeg -y -i "$f" -c:v libx264 -preset "$H264_PRESET" -crf "$H264_CRF" -c:a aac -b:a 128k -movflags +faststart "$out_mp4"; then
+        echo "ffmpeg mp4 failed for $f" >&2
+        failed=$((failed+1))
+      else
+        processed_videos=$((processed_videos+1))
+      fi
+    else
+      echo "ffmpeg not available; cannot optimize video: $f"
+      failed=$((failed+1))
+    fi
+  fi
+
+  if [ "$GENERATE_WEBM" = "true" ]; then
+    if [ "$SKIP_IF_EXISTS" = "true" ] && [ -e "$out_webm" ]; then
+      echo "Optimized WebM exists — skipping: $out_webm"
+    else
+      if has ffmpeg; then
+        echo "Creating WebM (VP9): $f -> $out_webm"
+        # Use a faster VP9 setting that balances speed/size; adjust VP9_CRF and CPU_USED as desired
+        if ! ffmpeg -y -i "$f" -c:v libvpx-vp9 -b:v 0 -crf "$VP9_CRF" -cpu-used "$VP9_CPU_USED" -c:a libopus "$out_webm"; then
+          echo "ffmpeg webm failed for $f" >&2
+          failed=$((failed+1))
+        fi
+      else
+        echo "ffmpeg not available; cannot create webm for: $f"
+        failed=$((failed+1))
+      fi
+    fi
+  fi
+done
+
+# --- Images ---
+echo ""
+echo "Processing images..."
+# We'll iterate over all png/jpg/jpeg files (case-insensitive)
+shopt -s nocaseglob
+for f in public/images/*.{png,jpg,jpeg}; do
+  [ -e "$f" ] || continue
+  size="$(filesize "$f")"
+  if [ "$size" -lt "$MIN_SIZE_IMAGES" ]; then
+    echo "Skipping image (below threshold): $f ($(numfmt --to=si "$size") bytes)"
+    skipped_images=$((skipped_images+1))
+    continue
+  fi
+
+  ext="${f##*.}"
+  lc_ext="${ext,,}"   # lowercase extension
+  base="$(basename "$f" ".$ext")"
+  out="$IMAGES_OUT_DIR/${base}-optimized.${lc_ext}"
+
+  if [ "$SKIP_IF_EXISTS" = "true" ] && [ -e "$out" ]; then
+    echo "Optimized image exists — skipping: $out"
+    skipped_images=$((skipped_images+1))
+    continue
+  fi
+
+  echo "Optimizing image: $f -> $out (ext: $lc_ext)"
+  # Work on a temp copy to avoid partial files if something fails
+  tmp="$(mktemp "${TMPDIR:-/tmp}/opt.XXXXXX")"
+  trap 'rm -f "$tmp"' RETURN
+
+  cp "$f" "$tmp"
+
+  if [ "$lc_ext" = "jpg" ] || [ "$lc_ext" = "jpeg" ]; then
+    if has jpegoptim; then
+      jpegoptim --max=85 --strip-all --all-progressive "$tmp" >/dev/null 2>&1 || echo "jpegoptim warning for $f"
+    fi
+    mv "$tmp" "$out"
+    processed_images=$((processed_images+1))
+  elif [ "$lc_ext" = "png" ]; then
+    # Use pngquant to create a reduced-color version, then optipng
+    if has pngquant; then
+      # pngquant writes to stdout or a file; we'll write to tmp2 then optipng
+      tmp2="$(mktemp "${TMPDIR:-/tmp}/opt2.XXXXXX.png")"
+      if pngquant --quality=60-80 --speed 1 --force --output "$tmp2" "$tmp" >/dev/null 2>&1; then
+        if has optipng; then
+          optipng -o2 "$tmp2" >/dev/null 2>&1 || true
+        fi
+        mv "$tmp2" "$out"
+      else
+        # fallback: use original copy
+        mv "$tmp" "$out"
+      fi
+    else
+      mv "$tmp" "$out"
+    fi
+    processed_images=$((processed_images+1))
+  else
+    # Unknown extension — copy as-is
+    mv "$tmp" "$out"
+    processed_images=$((processed_images+1))
+  fi
+
+  # Generate WebP and AVIF from the optimized copy if tools exist and flags are enabled
+  if [ "$GENERATE_WEBP" = "true" ] && has cwebp; then
+    echo "Generating WebP: $out -> ${out}.webp"
+    cwebp -q 75 "$out" -o "${out}.webp" >/dev/null 2>&1 || echo "cwebp failed for $out"
+  fi
+  if [ "$GENERATE_AVIF" = "true" ] && has avifenc; then
+    echo "Generating AVIF: $out -> ${out}.avif"
+    avifenc --min 0 --max 33 --cq-level="$AVIF_CQ" "$out" "${out}.avif" >/dev/null 2>&1 || echo "avifenc failed for $out"
+  fi
+done
+shopt -u nocaseglob
+
+# --- Small-files fallback generation (ensure at least webp/avif exist) ---
+echo ""
+echo "Generating missing webp/avif fallbacks for originals if optimized did not exist..."
+shopt -s nocaseglob
+for f in public/images/*.{png,jpg,jpeg}; do
+  [ -e "$f" ] || continue
+  base="${f%.*}"
+  ext="${f##*.}"
+  out_pref="$IMAGES_OUT_DIR/$(basename "$base")-optimized.${ext,,}"
+
+  # prefer optimized source if present
+  if [ -e "$out_pref" ]; then
+    src="$out_pref"
+  else
+    src="$f"
+  fi
+
+  if [ "$GENERATE_WEBP" = "true" ] && has cwebp && [ ! -e "${src}.webp" ]; then
+    echo "Creating webp for $src"
+    cwebp -q 75 "$src" -o "${src}.webp" >/dev/null 2>&1 || true
+  fi
+  if [ "$GENERATE_AVIF" = "true" ] && has avifenc && [ ! -e "${src}.avif" ]; then
+    echo "Creating avif for $src"
+    avifenc --min 0 --max 33 --cq-level="$AVIF_CQ" "$src" "${src}.avif" >/dev/null 2>&1 || true
+  fi
+done
+shopt -u nocaseglob
+
+# --- Summary ---
+echo ""
+echo "Optimization summary:"
+echo "Processed images: $processed_images"
+echo "Skipped images:   $skipped_images"
+echo "Processed videos: $processed_videos"
+echo "Skipped videos:   $skipped_videos"
+echo "Failures:          $failed"
+echo ""
+
+# Print size overview (originals vs optimized)
+echo "Size totals (originals):"
+du -ch public/images public/videos 2>/dev/null | tail -n1 || true
+echo ""
+echo "Size totals (optimized):"
+du -ch "$IMAGES_OUT_DIR" "$VIDEOS_OUT_DIR" 2>/dev/null | tail -n1 || true
+
+echo ""
+echo "Done: non-destructive optimization complete."
+echo "Optimized files are in: $OUTPUT_DIR (images -> $IMAGES_OUT_DIR, videos -> $VIDEOS_OUT_DIR)"
