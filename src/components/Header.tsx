@@ -31,7 +31,7 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center" role="img" aria-label="Logo">
               <Scissors className="w-6 h-6 text-black" />
             </div>
 
@@ -40,7 +40,7 @@ const Header: React.FC = () => {
                 Barber Sebastian Torres
               </h1>
               <p className="text-xs md:text-sm text-gold tracking-wide">
-                LA Barber Shop
+                LA Barbershop
               </p>
             </div>
           </div>
