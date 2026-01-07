@@ -9,6 +9,8 @@ const Hero: React.FC = () => {
         loop
         muted
         playsInline
+        preload="metadata"
+        poster="/images/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="/videos/ARREGLOS.mp4" type="video/mp4" />
