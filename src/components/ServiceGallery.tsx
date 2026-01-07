@@ -46,7 +46,7 @@ const categories: CategoryTile[] = [
 
 const ServiceGallery: React.FC<ServiceGalleryProps> = ({ onCategoryClick }) => {
   return (
-    <section id="service-gallery" className="py-24 px-4 bg-zinc-900 fade-on-scroll">
+    <section id="service-gallery" className="py-24 px-4 bg-black fade-on-scroll">
       <div className="max-w-7xl mx-auto">
         <h2 className="section-title mb-4 text-gold">Explore Different Styles</h2>
 
