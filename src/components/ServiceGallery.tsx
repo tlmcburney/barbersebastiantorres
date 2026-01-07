@@ -46,7 +46,7 @@ const categories: CategoryTile[] = [
 
 const ServiceGallery: React.FC<ServiceGalleryProps> = ({ onCategoryClick }) => {
   return (
-    <section id="service-gallery" className="py-24 px-4 bg-zinc-900 fade-on-scroll opacity-0">
+    <section id="service-gallery" className="py-24 px-4 bg-zinc-900 fade-on-scroll">
       <div className="max-w-7xl mx-auto">
         <h2 className="section-title mb-4 text-gold">Explore Different Styles</h2>
 
@@ -58,9 +58,8 @@ const ServiceGallery: React.FC<ServiceGalleryProps> = ({ onCategoryClick }) => {
           {categories.map((category, index) => (
             <div
               key={index}
-              className="group cursor-pointer fade-on-scroll opacity-0"
+              className="group cursor-pointer"
               onClick={() => onCategoryClick(category)}
-              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden rounded-lg border-2 border-zinc-800 group-hover:border-gold group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 bg-black h-[300px] flex flex-col">
                 <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
