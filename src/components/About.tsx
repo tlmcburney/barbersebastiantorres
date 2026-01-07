@@ -28,20 +28,15 @@ const About: React.FC = () => {
             </p>
 
             <p className="text-white text-lg leading-relaxed">
-              Walk into Sebastian's chair and walk out transformed. It's not just about the cut—it's about
-              how you feel when you see yourself in the mirror. <span className="text-gold font-semibold">Confident. Sharp. Ready.</span>
+              Sebastian Torres doesn't just cut hair—he engineers confidence. Every fade, every lineup, every hot towel shave is executed with precision that sets him apart in West Hollywood.
             </p>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              In the heart of West Hollywood, Sebastian has built a reputation on one simple truth:
-              precision grooming changes everything. Every fade is deliberate. Every line is intentional.
-              Every client leaves feeling like the best version of themselves.
+              His clients don't just walk out looking sharp. They walk out feeling different. That's what seven years of obsessive attention to detail gets you. While other barbers rush to fit in more appointments, Sebastian takes the time to understand your hair texture, face shape, and style goals. The result? Cuts that look incredible and stay looking incredible.
             </p>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              With over a decade of experience perfecting his craft, Sebastian combines traditional barbering
-              techniques with modern styling trends. His attention to detail and commitment to excellence
-              has made him one of LA's most sought-after barbers.
+              From classic gentleman's cuts to modern fades, beard sculpting to traditional hot lather shaves, Sebastian's range matches his expertise. But what keeps clients coming back isn't just the technical skill—it's the experience. Professional, personalized, and built around making you feel at ease from the moment you sit down.
             </p>
 
             <div className="pt-4">
