@@ -13,25 +13,25 @@ const services: Service[] = [
     icon: <Scissors className="w-8 h-8" />,
     title: 'Precision Haircuts',
     price: '$65',
-    description: 'Modern fades, classic gentleman\'s cuts, and contemporary styles. Walk out feeling sharp, polished, and ready to turn heads.'
+    description: 'Fades, classic cuts, gentleman\'s styles. Precision work tailored to your face shape and lifestyle. Includes consultation and finishing.'
   },
   {
     icon: <Sparkles className="w-8 h-8" />,
     title: 'Beard Grooming',
     price: '$45',
-    description: 'Expert sculpting and shaping that defines your jawline. Your beard, refined to perfection.'
+    description: 'Line-ups, sculpting, hot towel treatment. Transform your beard into a defined, sharp look that complements your cut.'
   },
   {
     icon: <Droplet className="w-8 h-8" />,
     title: 'Hot Lather Shaves',
     price: '$55',
-    description: 'Traditional hot lather shave that\'s equal parts ritual and relaxation. Smooth, clean, sophisticated.'
+    description: 'Traditional straight razor shave with hot towel treatment. Old school grooming executed with modern precision.'
   },
   {
     icon: <Star className="w-8 h-8" />,
     title: 'Signature Combos',
     price: '$85-100',
-    description: 'The complete transformation. Haircut and beard grooming or hot shave. Leave looking and feeling unstoppable.'
+    description: 'Haircut, beard grooming, and finishing. The full Sebastian Torres experience. Walk in ready for change, walk out movie star status.'
   }
 ]
 
