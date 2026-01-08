@@ -37,7 +37,10 @@ const Header: React.FC = () => {
               className="h-16 md:h-20 w-auto object-contain"
             />
 
-            <div>
+            <div className="flex flex-col">
+              <p className="text-xs md:text-sm text-gold tracking-wide">
+                Barber Sebastian Torres
+              </p>
               <p className="text-xs md:text-sm text-gold tracking-wide">
                 LA Barbershop
               </p>

@@ -22,16 +22,17 @@ const Hero: React.FC = () => {
 
       <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10 pt-20">
         <div className="flex flex-col items-center">
-          <p
-            className="text-2xl md:text-3xl lg:text-4xl mb-4 text-white tracking-widest"
+          <div
+            className="text-3xl md:text-4xl lg:text-5xl mb-4 text-white tracking-wider"
             style={{
               fontFamily: '"Cinzel", serif',
-              fontWeight: 400,
+              fontWeight: 600,
               textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
             }}
           >
-            The official website of
-          </p>
+            <div>MY CUTS BOOST YOUR</div>
+            <div className="mt-2">[KON-FI-DUHNS]</div>
+          </div>
           <h1
             className="text-6xl md:text-8xl lg:text-9xl text-white"
             style={{
