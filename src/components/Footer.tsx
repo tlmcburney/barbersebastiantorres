@@ -11,7 +11,10 @@ const Footer: React.FC = () => {
           </div>
           <h2 className="text-2xl font-serif text-white mb-2">Barber Sebastian Torres</h2>
           <p className="text-sm text-gold tracking-wide mb-2">LA Barber Shop</p>
-          <p className="text-lg font-semibold text-gold tracking-wider">i BOOST YOUR CONFIDENCE</p>
+          <div className="text-lg font-semibold text-gold tracking-wider">
+            <div>MY CUTS BOOST YOUR</div>
+            <div>[KON-FI-DUHNS]</div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
