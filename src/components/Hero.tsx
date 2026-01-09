@@ -23,16 +23,6 @@ const Hero: React.FC = () => {
       <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10 pt-20">
         <div className="flex flex-col items-center">
           <div
-            className="text-lg md:text-2xl lg:text-3xl text-white tracking-wider"
-            style={{
-              fontFamily: '"Cinzel", serif',
-              fontWeight: 600,
-              textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
-            }}
-          >
-            The official website
-          </div>
-          <div
             className="text-lg md:text-2xl lg:text-3xl mb-4 text-white tracking-wider"
             style={{
               fontFamily: '"Cinzel", serif',
@@ -40,7 +30,7 @@ const Hero: React.FC = () => {
               textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
             }}
           >
-            of
+            The official website of
           </div>
           <h1
             className="text-6xl md:text-8xl lg:text-9xl text-white"
