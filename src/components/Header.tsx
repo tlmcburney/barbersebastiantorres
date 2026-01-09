@@ -34,14 +34,14 @@ const Header: React.FC = () => {
             <img
               src="/images/7BD988CF-55D5-4704-8F4D-3B25B791A79F.png"
               alt="Barber Sebastian Torres Logo"
-              className="h-20 md:h-24 w-auto object-contain"
+              className="h-28 md:h-36 w-auto object-contain"
             />
 
             <div className="flex flex-col">
-              <p className="text-sm md:text-base text-gold tracking-wide">
+              <p className="text-lg md:text-xl text-gold tracking-wide">
                 Barber Sebastian Torres
               </p>
-              <p className="text-sm md:text-base text-gold tracking-wide">
+              <p className="text-lg md:text-xl text-gold tracking-wide">
                 LA Barbershop
               </p>
             </div>
@@ -50,32 +50,32 @@ const Header: React.FC = () => {
           <nav className="hidden lg:flex items-center gap-10">
             <button
               onClick={() => scrollToSection('about')}
-              className="text-base md:text-lg text-white hover:text-gold transition-colors"
+              className="text-2xl md:text-3xl text-white hover:text-gold transition-colors"
             >
               Bio
             </button>
             <button
               onClick={() => scrollToSection('reviews')}
-              className="text-base md:text-lg text-white hover:text-gold transition-colors"
+              className="text-2xl md:text-3xl text-white hover:text-gold transition-colors"
             >
               Reviews
             </button>
             <button
               onClick={() => scrollToSection('gallery')}
-              className="text-base md:text-lg text-white hover:text-gold transition-colors"
+              className="text-2xl md:text-3xl text-white hover:text-gold transition-colors"
             >
               Gallery
             </button>
             <button
               onClick={() => scrollToSection('services')}
-              className="text-base md:text-lg text-white hover:text-gold transition-colors"
+              className="text-2xl md:text-3xl text-white hover:text-gold transition-colors"
             >
               Services
             </button>
             {/* TODO: Replace with actual Booksy URL from Sebastian */}
             <button
               onClick={() => window.open('INSERT_BOOKSY_LINK_HERE', '_blank')}
-              className="btn-primary py-3 px-8"
+              className="btn-primary py-4 px-10 text-xl"
             >
               Book Now
             </button>
@@ -94,32 +94,32 @@ const Header: React.FC = () => {
           <nav className="lg:hidden mt-4 pb-4 border-t border-zinc-800 pt-4 space-y-4">
             <button
               onClick={() => scrollToSection('about')}
-              className="block w-full text-left text-base text-white hover:text-gold transition-colors py-3"
+              className="block w-full text-left text-xl text-white hover:text-gold transition-colors py-4"
             >
               Bio
             </button>
             <button
               onClick={() => scrollToSection('reviews')}
-              className="block w-full text-left text-base text-white hover:text-gold transition-colors py-3"
+              className="block w-full text-left text-xl text-white hover:text-gold transition-colors py-4"
             >
               Reviews
             </button>
             <button
               onClick={() => scrollToSection('gallery')}
-              className="block w-full text-left text-base text-white hover:text-gold transition-colors py-3"
+              className="block w-full text-left text-xl text-white hover:text-gold transition-colors py-4"
             >
               Gallery
             </button>
             <button
               onClick={() => scrollToSection('services')}
-              className="block w-full text-left text-base text-white hover:text-gold transition-colors py-3"
+              className="block w-full text-left text-xl text-white hover:text-gold transition-colors py-4"
             >
               Services
             </button>
             {/* TODO: Replace with actual Booksy URL from Sebastian */}
             <button
               onClick={() => window.open('INSERT_BOOKSY_LINK_HERE', '_blank')}
-              className="btn-primary w-full py-4"
+              className="btn-primary w-full py-5 text-xl"
             >
               Book Now
             </button>
