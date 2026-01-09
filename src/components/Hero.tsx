@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
       <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10 pt-20">
         <div className="flex flex-col items-center">
           <div
-            className="text-3xl md:text-4xl lg:text-5xl mb-4 text-white tracking-wider"
+            className="text-2xl md:text-3xl lg:text-4xl mb-4 text-white tracking-wider"
             style={{
               fontFamily: '"Cinzel", serif',
               fontWeight: 600,
