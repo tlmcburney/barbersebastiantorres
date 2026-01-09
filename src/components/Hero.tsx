@@ -23,26 +23,24 @@ const Hero: React.FC = () => {
       <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10 pt-20">
         <div className="flex flex-col items-center">
           <div
-            className="text-2xl md:text-3xl lg:text-4xl mb-6 text-white tracking-[0.3em] uppercase"
+            className="text-3xl md:text-4xl lg:text-5xl mb-4 text-white tracking-wider"
             style={{
               fontFamily: '"Cinzel", serif',
-              fontWeight: 400,
-              textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
-              letterSpacing: '0.3em'
+              fontWeight: 600,
+              textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
             }}
           >
-            THE OFFICIAL WEBSITE OF
+            The official website of
           </div>
           <h1
-            className="text-white leading-tight"
+            className="text-6xl md:text-8xl lg:text-9xl text-white"
             style={{
               fontFamily: '"Allura", cursive',
               fontWeight: 400,
               textShadow: '3px 3px 6px rgba(0,0,0,0.9)'
             }}
           >
-            <div className="text-5xl md:text-7xl lg:text-8xl">Barber</div>
-            <div className="text-5xl md:text-7xl lg:text-8xl -mt-2">Sebastian Torres</div>
+            Barber Sebastian Torres
           </h1>
         </div>
 
