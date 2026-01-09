@@ -30,8 +30,7 @@ const Hero: React.FC = () => {
               textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
             }}
           >
-            <div>MY CUTS BOOST YOUR</div>
-            <div className="mt-2">[KON-FI-DUHNS]</div>
+            The official website of
           </div>
           <h1
             className="text-6xl md:text-8xl lg:text-9xl text-white"

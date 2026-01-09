@@ -41,7 +41,9 @@ const About: React.FC = () => {
 
             <div className="pt-4">
               <p className="text-gold font-semibold text-2xl leading-relaxed">
-                "i BOOST YOUR CONFIDENCE"
+                "MY CUTS BOOST YOUR
+                <br />
+                [KON-FI-DUHNS"
               </p>
             </div>
 
