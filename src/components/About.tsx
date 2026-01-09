@@ -39,21 +39,21 @@ const About: React.FC = () => {
               From classic gentleman's cuts to modern fades, beard sculpting to traditional hot lather shaves, Sebastian's range matches his expertise. But what keeps clients coming back isn't just the technical skill—it's the experience. Professional, personalized, and built around making you feel at ease from the moment you sit down.
             </p>
 
-            <div className="pt-4">
+            <div className="pt-4 text-center">
               <p className="text-gold font-semibold text-2xl leading-relaxed">
-                "MY CUTS BOOST YOUR
-                <br />
-                [KON-FI-DUHNS"
+                MY CUTS BOOST YOUR [KON-FI-DUHNS
               </p>
             </div>
 
             {/* TODO: Replace with actual Booksy URL from Sebastian */}
-            <button
-              onClick={() => window.open('INSERT_BOOKSY_LINK_HERE', '_blank')}
-              className="btn-primary mt-6"
-            >
-              Book With Sebastian
-            </button>
+            <div className="text-center">
+              <button
+                onClick={() => window.open('INSERT_BOOKSY_LINK_HERE', '_blank')}
+                className="btn-primary mt-6"
+              >
+                Book With Sebastian
+              </button>
+            </div>
           </div>
         </div>
       </div>
