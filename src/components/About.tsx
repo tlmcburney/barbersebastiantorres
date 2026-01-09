@@ -41,7 +41,9 @@ const About: React.FC = () => {
 
             <div className="pt-4 text-center">
               <p className="text-gold font-semibold text-2xl leading-relaxed">
-                MY CUTS BOOST YOUR [KON-FI-DUHNS
+                MY CUTS BOOST YOUR
+                <br />
+                [KON-FI-DUHNS]
               </p>
             </div>
 
