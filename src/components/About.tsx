@@ -40,14 +40,14 @@ const About: React.FC = () => {
             </p>
 
             <div className="pt-4 text-center flex flex-col items-center gap-1">
-              <h3 className="text-white font-serif font-bold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+              <h3 className="text-white font-serif font-bold text-lg md:text-2xl lg:text-3xl uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 My Cuts Boost
               </h3>
-              <h3 className="text-gold font-serif font-bold text-5xl md:text-7xl lg:text-8xl uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+              <h3 className="text-gold font-serif font-bold text-2xl md:text-4xl lg:text-5xl uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 Your
               </h3>
-              <div className="inline-block border-4 border-gold px-4 py-2 mt-1">
-                <h3 className="text-white font-serif font-semibold text-4xl md:text-6xl lg:text-7xl uppercase tracking-wide" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+              <div className="inline-block border-2 border-gold px-2 py-1 mt-1">
+                <h3 className="text-white font-serif font-semibold text-xl md:text-3xl lg:text-4xl uppercase tracking-wide" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                   [KON-FI-DUHNS]
                 </h3>
               </div>
