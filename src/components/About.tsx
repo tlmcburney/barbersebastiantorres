@@ -39,12 +39,18 @@ const About: React.FC = () => {
               From classic gentleman's cuts to modern fades, beard sculpting to traditional hot lather shaves, Sebastian's range matches his expertise. But what keeps clients coming back isn't just the technical skill—it's the experience. Professional, personalized, and built around making you feel at ease from the moment you sit down.
             </p>
 
-            <div className="pt-4 text-center">
-              <p className="text-gold font-semibold text-2xl leading-relaxed">
-                MY CUTS BOOST YOUR
-                <br />
-                [KON-FI-DUHNS]
-              </p>
+            <div className="pt-4 text-center flex flex-col items-center gap-1">
+              <h3 className="text-white font-serif font-bold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                My Cuts Boost
+              </h3>
+              <h3 className="text-gold font-serif font-bold text-5xl md:text-7xl lg:text-8xl uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                Your
+              </h3>
+              <div className="inline-block border-4 border-gold px-4 py-2 mt-1">
+                <h3 className="text-white font-serif font-semibold text-4xl md:text-6xl lg:text-7xl uppercase tracking-wide" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+                  [KON-FI-DUHNS]
+                </h3>
+              </div>
             </div>
 
             {/* TODO: Replace with actual Booksy URL from Sebastian */}
