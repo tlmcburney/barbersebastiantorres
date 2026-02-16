@@ -46,8 +46,8 @@ const About: React.FC = () => {
               <h3 className="text-gold font-serif font-bold text-2xl md:text-4xl lg:text-5xl uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 Your
               </h3>
-              <div className="inline-block border-2 border-gold px-2 py-1 mt-1">
-                <h3 className="text-white font-serif font-semibold text-xl md:text-3xl lg:text-4xl uppercase tracking-wide" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+              <div className="inline-block bg-gold px-2 py-1 mt-1">
+                <h3 className="text-black font-serif font-semibold text-xl md:text-3xl lg:text-4xl uppercase tracking-wide">
                   [KON-FI-DUHNS]
                 </h3>
               </div>
