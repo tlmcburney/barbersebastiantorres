@@ -47,7 +47,7 @@ const About: React.FC = () => {
                 Your
               </h3>
               <div className="inline-block bg-white px-2 py-1 mt-1">
-                <h3 className="text-gold font-serif font-semibold italic text-xl md:text-3xl lg:text-4xl uppercase tracking-wide" style={{ textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000' }}>
+                <h3 className="text-gold font-serif font-semibold italic text-xl md:text-3xl lg:text-4xl uppercase tracking-wide">
                   [KON-FI-DUHNS]
                 </h3>
               </div>
