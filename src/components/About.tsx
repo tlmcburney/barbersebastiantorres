@@ -39,14 +39,14 @@ const About: React.FC = () => {
               From classic gentleman's cuts to modern fades, beard sculpting to traditional hot lather shaves, Sebastian's range matches his expertise. But what keeps clients coming back isn't just the technical skill—it's the experience. Professional, personalized, and built around making you feel at ease from the moment you sit down.
             </p>
 
-            <div className="pt-4 text-center flex flex-col items-center gap-1">
-              <h3 className="text-white font-serif font-bold text-lg md:text-2xl lg:text-3xl uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            <div className="pt-4 text-center flex flex-col items-center leading-none">
+              <h3 className="text-white font-serif font-bold text-2xl md:text-3xl lg:text-4xl uppercase tracking-wider -mb-1" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 My Cuts Boost
               </h3>
-              <h3 className="text-gold font-serif font-bold text-2xl md:text-4xl lg:text-5xl uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+              <h3 className="text-gold font-serif font-bold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wider -mb-1" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                 Your
               </h3>
-              <h3 className="text-white font-serif font-semibold text-2xl md:text-4xl lg:text-5xl uppercase tracking-wide mt-1" style={{ textShadow: '0 0 1px #D4AF37, 0 0 1px #D4AF37, 1px 0 0 #D4AF37, -1px 0 0 #D4AF37, 0 1px 0 #D4AF37, 0 -1px 0 #D4AF37, 1px 1px 0 #D4AF37, -1px -1px 0 #D4AF37, 1px -1px 0 #D4AF37, -1px 1px 0 #D4AF37, 1.5px 0 0 #D4AF37, -1.5px 0 0 #D4AF37, 0 1.5px 0 #D4AF37, 0 -1.5px 0 #D4AF37, 1.5px 1.5px 0 #D4AF37, -1.5px -1.5px 0 #D4AF37, 1.5px -1.5px 0 #D4AF37, -1.5px 1.5px 0 #D4AF37, 2px 0 0 #D4AF37, -2px 0 0 #D4AF37, 0 2px 0 #D4AF37, 0 -2px 0 #D4AF37, 2px 2px 0 #D4AF37, -2px -2px 0 #D4AF37, 2px -2px 0 #D4AF37, -2px 2px 0 #D4AF37' }}>
+              <h3 className="text-white font-serif font-semibold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wide" style={{ textShadow: '0 0 1px #D4AF37, 0 0 1px #D4AF37, 1px 0 0 #D4AF37, -1px 0 0 #D4AF37, 0 1px 0 #D4AF37, 0 -1px 0 #D4AF37, 1px 1px 0 #D4AF37, -1px -1px 0 #D4AF37, 1px -1px 0 #D4AF37, -1px 1px 0 #D4AF37, 1.5px 0 0 #D4AF37, -1.5px 0 0 #D4AF37, 0 1.5px 0 #D4AF37, 0 -1.5px 0 #D4AF37, 1.5px 1.5px 0 #D4AF37, -1.5px -1.5px 0 #D4AF37, 1.5px -1.5px 0 #D4AF37, -1.5px 1.5px 0 #D4AF37, 2px 0 0 #D4AF37, -2px 0 0 #D4AF37, 0 2px 0 #D4AF37, 0 -2px 0 #D4AF37, 2px 2px 0 #D4AF37, -2px -2px 0 #D4AF37, 2px -2px 0 #D4AF37, -2px 2px 0 #D4AF37' }}>
                 [KON-FI-DUHNS]
               </h3>
             </div>
