@@ -58,14 +58,6 @@ const Hero: React.FC = () => {
                   Meet Sebastian Torres
                 </h2>
 
-                <p className="text-white text-base md:text-lg leading-relaxed">
-                  I'm in the business of [KON-FI-DUHNS]. Based in West Hollywood, I've built a studio where passion for grooming meets the high-energy pulse of the street. For me, it's not just about the clippers; it's about the integrity behind the craft. I pride myself on providing a professional, 5-star experience that bridges the gap between classic technique and modern urban style.
-                </p>
-
-                <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                  From razor-sharp fades and textured cuts to the ritual of a classic hot towel shave, every service is a commitment to your image. Whether we're sculpting a well-defined beard or hitting a precision line-up, the goal remains the same: <span className="text-white font-semibold">Value</span>. What separates me from the rest isn't just the skill—it's the elevation you feel the second you step out of my chair.
-                </p>
-
                 <div className="pt-4 text-center flex flex-col items-center leading-none">
                   <h3 className="text-white font-serif font-bold text-xl md:text-2xl lg:text-3xl uppercase tracking-wider -mb-1" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
                     My Cuts Boost
@@ -77,8 +69,17 @@ const Hero: React.FC = () => {
                     [KON-FI-DUHNS]
                   </h3>
                   <p className="text-sm md:text-base text-white text-opacity-70 font-light italic mt-2">confidence</p>
-                  <p className="text-base md:text-lg text-white text-opacity-90 font-medium tracking-wide">Master Barber - LA Based</p>
                 </div>
+
+                <p className="text-base md:text-lg text-white text-opacity-90 font-medium tracking-wide text-center italic">Master Barber - LA Based</p>
+
+                <p className="text-white text-base md:text-lg leading-relaxed">
+                  I'm in the business of [KON-FI-DUHNS]. Based in West Hollywood, I've built a studio where passion for grooming meets the high-energy pulse of the street. For me, it's not just about the clippers; it's about the integrity behind the craft. I pride myself on providing a professional, 5-star experience that bridges the gap between classic technique and modern urban style.
+                </p>
+
+                <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+                  From razor-sharp fades and textured cuts to the ritual of a classic hot towel shave, every service is a commitment to your image. Whether we're sculpting a well-defined beard or hitting a precision line-up, the goal remains the same: <span className="text-white font-semibold">Value</span>. What separates me from the rest isn't just the skill—it's the elevation you feel the second you step out of my chair.
+                </p>
 
                 <div className="text-center">
                   <button
