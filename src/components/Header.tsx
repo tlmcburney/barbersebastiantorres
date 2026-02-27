@@ -49,10 +49,10 @@ const Header: React.FC = () => {
 
           <nav className="hidden lg:flex items-center gap-10">
             <button
-              onClick={() => scrollToSection('about')}
+              onClick={() => scrollToSection('services')}
               className="text-2xl md:text-3xl text-white hover:text-gold transition-colors"
             >
-              Bio
+              Services
             </button>
             <button
               onClick={() => scrollToSection('reviews')}
@@ -65,12 +65,6 @@ const Header: React.FC = () => {
               className="text-2xl md:text-3xl text-white hover:text-gold transition-colors"
             >
               Gallery
-            </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              className="text-2xl md:text-3xl text-white hover:text-gold transition-colors"
-            >
-              Services
             </button>
             {/* TODO: Replace with actual Booksy URL from Sebastian */}
             <button
@@ -93,10 +87,10 @@ const Header: React.FC = () => {
         {isMobileMenuOpen && (
           <nav className="lg:hidden mt-4 pb-4 border-t border-zinc-800 pt-4 space-y-4">
             <button
-              onClick={() => scrollToSection('about')}
+              onClick={() => scrollToSection('services')}
               className="block w-full text-left text-xl text-white hover:text-gold transition-colors py-4"
             >
-              Bio
+              Services
             </button>
             <button
               onClick={() => scrollToSection('reviews')}
@@ -109,12 +103,6 @@ const Header: React.FC = () => {
               className="block w-full text-left text-xl text-white hover:text-gold transition-colors py-4"
             >
               Gallery
-            </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              className="block w-full text-left text-xl text-white hover:text-gold transition-colors py-4"
-            >
-              Services
             </button>
             {/* TODO: Replace with actual Booksy URL from Sebastian */}
             <button
