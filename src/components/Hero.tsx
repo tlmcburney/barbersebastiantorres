@@ -3,11 +3,11 @@ import { ChevronDown } from 'lucide-react'
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative h-screen overflow-hidden bg-black pt-40 md:pt-44">
+    <section className="relative bg-black pt-40 md:pt-44">
       {/* SPLIT SCREEN LAYOUT - Video Left, Bio Right */}
-      <div className="h-full flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row">
         {/* LEFT SIDE - Video (50% width on desktop, full on mobile top) */}
-        <div className="relative w-full md:w-1/2 h-1/2 md:h-full overflow-hidden">
+        <div className="relative w-full md:w-1/2 min-h-[50vh] md:min-h-screen overflow-hidden">
           <video
             autoPlay
             loop
@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
 
           <div className="absolute inset-0 bg-black/30 z-[1]"></div>
 
-          <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10">
+          <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10 py-12">
             <div className="flex flex-col items-center">
               <div
                 className="text-lg md:text-2xl lg:text-3xl mb-4 text-white tracking-wider"
@@ -49,8 +49,8 @@ const Hero: React.FC = () => {
         </div>
 
         {/* RIGHT SIDE - Meet Sebastian Bio (50% width on desktop, full on mobile bottom) */}
-        <div className="relative w-full md:w-1/2 h-1/2 md:h-full bg-black overflow-y-auto">
-          <div className="flex items-start px-6 md:px-8 lg:px-12 py-8">
+        <div className="relative w-full md:w-1/2 bg-black">
+          <div className="flex items-start px-6 md:px-8 lg:px-12 py-8 md:py-12">
             <div className="space-y-6 w-full">
               {/* Bio Content */}
               <div className="space-y-4 md:space-y-6">
@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Sebastian's Image - Below Text */}
-              <div className="relative max-w-md mx-auto">
+              <div className="relative max-w-md mx-auto pb-8">
                 <div className="aspect-[4/5] bg-zinc-900 rounded-lg overflow-hidden">
                   <img
                     src="/images/F8735A20-DD0A-412D-BAB5-F43F333784F8.jpeg"
@@ -117,7 +117,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Scroll Down Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20 hidden md:block">
         <ChevronDown className="w-8 h-8 text-gold" />
       </div>
     </section>
