@@ -61,6 +61,8 @@ const Services: React.FC<ServicesProps> = ({ onStyleClick }) => {
             const isBSTEnrollment = offering.name === 'Haircuts'
 
             if (isBSTEnrollment) {
+              const titleLines = offering.title.split('\n')
+
               return (
                 <div
                   key={offering.id}
@@ -68,8 +70,13 @@ const Services: React.FC<ServicesProps> = ({ onStyleClick }) => {
                 >
                   <div className="flex flex-col lg:flex-row">
                     <div className="lg:w-1/4 p-8 lg:p-10 flex flex-col justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-zinc-800">
-                      <h3 className="text-3xl font-bold text-gold mb-4">
-                        {offering.title}
+                      <h3 className="text-3xl font-bold mb-4">
+                        {titleLines.map((line, index) => (
+                          <span key={index} className={line.includes('[KON-FI-DUHNS]') ? 'text-white' : 'text-gold'}>
+                            {line}
+                            {index < titleLines.length - 1 && <br />}
+                          </span>
+                        ))}
                       </h3>
 
                       <div className="mb-6">
