@@ -68,10 +68,10 @@ const Hero: React.FC = () => {
                   <h3 className="text-white font-serif font-semibold text-2xl md:text-4xl lg:text-5xl uppercase tracking-wide" style={{ textShadow: '0 0 1px #D4AF37, 0 0 1px #D4AF37, 1px 0 0 #D4AF37, -1px 0 0 #D4AF37, 0 1px 0 #D4AF37, 0 -1px 0 #D4AF37, 1px 1px 0 #D4AF37, -1px -1px 0 #D4AF37, 1px -1px 0 #D4AF37, -1px 1px 0 #D4AF37, 1.5px 0 0 #D4AF37, -1.5px 0 0 #D4AF37, 0 1.5px 0 #D4AF37, 0 -1.5px 0 #D4AF37, 1.5px 1.5px 0 #D4AF37, -1.5px -1.5px 0 #D4AF37, 1.5px -1.5px 0 #D4AF37, -1.5px 1.5px 0 #D4AF37, 2px 0 0 #D4AF37, -2px 0 0 #D4AF37, 0 2px 0 #D4AF37, 0 -2px 0 #D4AF37, 2px 2px 0 #D4AF37, -2px -2px 0 #D4AF37, 2px -2px 0 #D4AF37, -2px 2px 0 #D4AF37' }}>
                     [KON-FI-DUHNS]
                   </h3>
-                  <p className="text-lg md:text-xl text-white font-light italic mt-2">confidence</p>
+                  <p className="text-xl md:text-2xl text-white font-bold uppercase mt-2">CONFIDENCE</p>
                 </div>
 
-                <p className="text-2xl md:text-3xl lg:text-4xl text-gold font-medium tracking-wide text-left italic">Master Barber - LA Based</p>
+                <p className="text-2xl md:text-3xl lg:text-4xl text-gold font-medium tracking-wide text-left italic" style={{ fontFamily: '"Cinzel", serif' }}>Master Barber - LA Based</p>
 
                 <p className="text-white text-base md:text-lg leading-relaxed">
                   I'm in the business of [KON-FI-DUHNS]. Based in West Hollywood, I've built a studio where passion for grooming meets the high-energy pulse of the street. For me, it's not just about the clippers; it's about the integrity behind the craft. I pride myself on providing a professional, 5-star experience that bridges the gap between classic technique and modern urban style.
