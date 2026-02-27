@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
 
         {/* RIGHT SIDE - Meet Sebastian Bio (50% width on desktop, full on mobile bottom) */}
         <div className="relative w-full md:w-1/2 h-1/2 md:h-full bg-black overflow-y-auto">
-          <div className="h-full flex items-start px-6 md:px-8 lg:px-12 py-8">
+          <div className="flex items-start px-6 md:px-8 lg:px-12 py-8">
             <div className="space-y-6 w-full">
               {/* Bio Content */}
               <div className="space-y-4 md:space-y-6">
