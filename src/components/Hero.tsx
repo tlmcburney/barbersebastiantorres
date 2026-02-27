@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
             <div className="space-y-6 w-full">
               {/* Bio Content */}
               <div className="space-y-4 md:space-y-6">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gold" style={{ fontFamily: '"Cinzel", serif' }}>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gold text-center" style={{ fontFamily: '"Cinzel", serif' }}>
                   Meet Sebastian Torres
                 </h2>
 
@@ -68,10 +68,10 @@ const Hero: React.FC = () => {
                   <h3 className="text-white font-serif font-semibold text-2xl md:text-4xl lg:text-5xl uppercase tracking-wide" style={{ textShadow: '0 0 1px #D4AF37, 0 0 1px #D4AF37, 1px 0 0 #D4AF37, -1px 0 0 #D4AF37, 0 1px 0 #D4AF37, 0 -1px 0 #D4AF37, 1px 1px 0 #D4AF37, -1px -1px 0 #D4AF37, 1px -1px 0 #D4AF37, -1px 1px 0 #D4AF37, 1.5px 0 0 #D4AF37, -1.5px 0 0 #D4AF37, 0 1.5px 0 #D4AF37, 0 -1.5px 0 #D4AF37, 1.5px 1.5px 0 #D4AF37, -1.5px -1.5px 0 #D4AF37, 1.5px -1.5px 0 #D4AF37, -1.5px 1.5px 0 #D4AF37, 2px 0 0 #D4AF37, -2px 0 0 #D4AF37, 0 2px 0 #D4AF37, 0 -2px 0 #D4AF37, 2px 2px 0 #D4AF37, -2px -2px 0 #D4AF37, 2px -2px 0 #D4AF37, -2px 2px 0 #D4AF37' }}>
                     [KON-FI-DUHNS]
                   </h3>
-                  <p className="text-sm md:text-base text-white text-opacity-70 font-light italic mt-2">confidence</p>
+                  <p className="text-lg md:text-xl text-white font-light italic mt-2">confidence</p>
                 </div>
 
-                <p className="text-base md:text-lg text-white text-opacity-90 font-medium tracking-wide text-center italic">Master Barber - LA Based</p>
+                <p className="text-2xl md:text-3xl lg:text-4xl text-gold font-medium tracking-wide text-left italic">Master Barber - LA Based</p>
 
                 <p className="text-white text-base md:text-lg leading-relaxed">
                   I'm in the business of [KON-FI-DUHNS]. Based in West Hollywood, I've built a studio where passion for grooming meets the high-energy pulse of the street. For me, it's not just about the clippers; it's about the integrity behind the craft. I pride myself on providing a professional, 5-star experience that bridges the gap between classic technique and modern urban style.
