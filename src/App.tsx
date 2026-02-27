@@ -57,7 +57,8 @@ function App() {
       <ScrollProgress />
       <Header />
       <Hero />
-      <About />
+      {/* TEMPORARILY HIDDEN - About section now in Hero split-screen */}
+      {/* <About /> */}
       <Services />
       <ServiceGallery onCategoryClick={setSelectedCategory} />
       <Testimonials />
