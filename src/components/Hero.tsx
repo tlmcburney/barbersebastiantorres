@@ -58,20 +58,12 @@ const Hero: React.FC = () => {
                   Meet Sebastian Torres
                 </h2>
 
-                <p className="text-gold text-lg md:text-xl font-semibold tracking-wide uppercase">
-                  Master Barber • LA Based
-                </p>
-
                 <p className="text-white text-base md:text-lg leading-relaxed">
-                  Sebastian Torres doesn't just cut hair—he engineers confidence. Every fade, every lineup, every hot towel shave is executed with precision that sets him apart in West Hollywood.
+                  I'm in the business of [KON-FI-DUHNS]. Based in West Hollywood, I've built a studio where passion for grooming meets the high-energy pulse of the street. For me, it's not just about the clippers; it's about the integrity behind the craft. I pride myself on providing a professional, 5-star experience that bridges the gap between classic technique and modern urban style.
                 </p>
 
                 <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                  His clients don't just walk out looking sharp. They walk out feeling different. That's what seven years of obsessive attention to detail gets you. While other barbers rush to fit in more appointments, Sebastian takes the time to understand your hair texture, face shape, and style goals. The result? Cuts that look incredible and stay looking incredible.
-                </p>
-
-                <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                  From classic gentleman's cuts to modern fades, beard sculpting to traditional hot lather shaves, Sebastian's range matches his expertise. But what keeps clients coming back isn't just the technical skill—it's the experience. Professional, personalized, and built around making you feel at ease from the moment you sit down.
+                  From razor-sharp fades and textured cuts to the ritual of a classic hot towel shave, every service is a commitment to your image. Whether we're sculpting a well-defined beard or hitting a precision line-up, the goal remains the same: <span className="text-white font-semibold">Value</span>. What separates me from the rest isn't just the skill—it's the elevation you feel the second you step out of my chair.
                 </p>
 
                 <div className="pt-4 text-center flex flex-col items-center leading-none">
@@ -84,6 +76,8 @@ const Hero: React.FC = () => {
                   <h3 className="text-white font-serif font-semibold text-2xl md:text-4xl lg:text-5xl uppercase tracking-wide" style={{ textShadow: '0 0 1px #D4AF37, 0 0 1px #D4AF37, 1px 0 0 #D4AF37, -1px 0 0 #D4AF37, 0 1px 0 #D4AF37, 0 -1px 0 #D4AF37, 1px 1px 0 #D4AF37, -1px -1px 0 #D4AF37, 1px -1px 0 #D4AF37, -1px 1px 0 #D4AF37, 1.5px 0 0 #D4AF37, -1.5px 0 0 #D4AF37, 0 1.5px 0 #D4AF37, 0 -1.5px 0 #D4AF37, 1.5px 1.5px 0 #D4AF37, -1.5px -1.5px 0 #D4AF37, 1.5px -1.5px 0 #D4AF37, -1.5px 1.5px 0 #D4AF37, 2px 0 0 #D4AF37, -2px 0 0 #D4AF37, 0 2px 0 #D4AF37, 0 -2px 0 #D4AF37, 2px 2px 0 #D4AF37, -2px -2px 0 #D4AF37, 2px -2px 0 #D4AF37, -2px 2px 0 #D4AF37' }}>
                     [KON-FI-DUHNS]
                   </h3>
+                  <p className="text-sm md:text-base text-white text-opacity-70 font-light italic mt-2">confidence</p>
+                  <p className="text-base md:text-lg text-white text-opacity-90 font-medium tracking-wide">Master Barber - LA Based</p>
                 </div>
 
                 <div className="text-center">
