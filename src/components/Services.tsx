@@ -48,7 +48,7 @@ const Services: React.FC<ServicesProps> = ({ onStyleClick }) => {
   }
 
   return (
-    <section id="services" className="py-24 px-4 bg-black fade-on-scroll opacity-0">
+    <section id="services" className="py-24 px-4 bg-black">
       <div className="max-w-7xl mx-auto">
         <h2 className="section-title mb-8 text-gold">Services</h2>
 
