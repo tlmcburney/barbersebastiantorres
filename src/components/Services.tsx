@@ -1,81 +1,143 @@
-import React from 'react'
-import { Scissors, Sparkles, Droplet, Star } from 'lucide-react'
+import React, { useState, useEffect, useRef } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { getServiceOfferings, ServiceOffering, ServiceStyle } from '../lib/supabase'
+import StyleCard from './StyleCard'
 
-interface Service {
-  icon: React.ReactNode
-  title: string
-  price: string
-  description: string
+interface ServicesProps {
+  onStyleClick: (style: ServiceStyle) => void
 }
 
-const services: Service[] = [
-  {
-    icon: <Scissors className="w-8 h-8" />,
-    title: 'Precision Haircuts',
-    price: '$65',
-    description: 'Fades, classic cuts, gentleman\'s styles. Precision work tailored to your face shape and lifestyle. Includes consultation and finishing.'
-  },
-  {
-    icon: <Sparkles className="w-8 h-8" />,
-    title: 'Beard Grooming',
-    price: '$45',
-    description: 'Line-ups, sculpting, hot towel treatment. Transform your beard into a defined, sharp look that complements your cut.'
-  },
-  {
-    icon: <Droplet className="w-8 h-8" />,
-    title: 'Hot Lather Shaves',
-    price: '$55',
-    description: 'Traditional straight razor shave with hot towel treatment. Old school grooming executed with modern precision.'
-  },
-  {
-    icon: <Star className="w-8 h-8" />,
-    title: 'Signature Combos',
-    price: '$85-100',
-    description: 'Haircut, beard grooming, and finishing. The full Sebastian Torres experience. Walk in ready for change, walk out movie star status.'
-  }
-]
+const Services: React.FC<ServicesProps> = ({ onStyleClick }) => {
+  const [offerings, setOfferings] = useState<ServiceOffering[]>([])
+  const [loading, setLoading] = useState(true)
+  const scrollContainerRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
 
-const Services: React.FC = () => {
+  useEffect(() => {
+    const fetchOfferings = async () => {
+      const data = await getServiceOfferings()
+      setOfferings(data)
+      setLoading(false)
+    }
+
+    fetchOfferings()
+  }, [])
+
+  const scroll = (offeringId: string, direction: 'left' | 'right') => {
+    const container = scrollContainerRefs.current[offeringId]
+    if (!container) return
+
+    const scrollAmount = 200
+    const newScrollLeft = direction === 'left'
+      ? container.scrollLeft - scrollAmount
+      : container.scrollLeft + scrollAmount
+
+    container.scrollTo({
+      left: newScrollLeft,
+      behavior: 'smooth'
+    })
+  }
+
+  if (loading) {
+    return (
+      <section id="services" className="py-24 px-4 bg-black">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-gray-400">Loading services...</p>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section id="services" className="py-24 px-4 bg-black fade-on-scroll opacity-0">
       <div className="max-w-7xl mx-auto">
-        <h2 className="section-title mb-16 text-gold">Services</h2>
+        <h2 className="section-title mb-8 text-gold">Services</h2>
 
-        <p className="text-center text-gray-300 text-lg mb-12 max-w-3xl mx-auto">
+        <p className="text-center text-gray-300 text-lg mb-16 max-w-3xl mx-auto">
           Premium grooming services tailored to elevate your style and confidence.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+        <div className="space-y-12">
+          {offerings.map((offering) => (
             <div
-              key={index}
-              className="bg-black border-2 border-zinc-800 p-8 rounded-lg hover:border-gold transition-all duration-300 group flex flex-col"
+              key={offering.id}
+              className="bg-zinc-950 border-2 border-zinc-800 rounded-lg overflow-hidden hover:border-gold/30 transition-all duration-300"
             >
-              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gold/10 border-2 border-gold text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all duration-300">
-                {service.icon}
+              <div className="flex flex-col lg:flex-row">
+                <div className="lg:w-2/5 p-8 lg:p-10 flex flex-col justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-zinc-800">
+                  <h3 className="text-3xl font-bold text-gold mb-4">
+                    {offering.title}
+                  </h3>
+
+                  <div className="mb-6">
+                    <p className="text-4xl font-bold text-white mb-2">
+                      ${offering.regular_price}
+                    </p>
+                    <p className="text-xl text-gold">
+                      ${offering.member_price} <span className="text-sm text-gray-400">members*</span>
+                    </p>
+                  </div>
+
+                  <p className="text-gray-300 mb-8 leading-relaxed text-lg">
+                    {offering.description}
+                  </p>
+
+                  <button
+                    onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
+                    className="btn-primary w-full lg:w-auto"
+                  >
+                    Book Now
+                  </button>
+                </div>
+
+                <div className="lg:w-3/5 p-6 lg:p-8 flex items-center">
+                  <div className="relative w-full">
+                    <button
+                      onClick={() => scroll(offering.id, 'left')}
+                      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/80 border-2 border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300 hidden lg:block"
+                      aria-label="Scroll left"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+
+                    <div
+                      ref={(el) => scrollContainerRefs.current[offering.id] = el}
+                      className="flex gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gold/50 scrollbar-track-zinc-800 pb-2 px-8 lg:px-12"
+                      style={{ scrollbarWidth: 'thin' }}
+                    >
+                      {offering.styles.map((style) => (
+                        <StyleCard
+                          key={style.id}
+                          style={style}
+                          onClick={() => onStyleClick(style)}
+                        />
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={() => scroll(offering.id, 'right')}
+                      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/80 border-2 border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300 hidden lg:block"
+                      aria-label="Scroll right"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
               </div>
-
-              <h3 className="text-2xl font-semibold mb-2 text-white group-hover:text-gold transition-colors">
-                {service.title}
-              </h3>
-
-              <p className="text-3xl font-bold text-gold mb-4">
-                {service.price}
-              </p>
-
-              <p className="text-gray-300 mb-6 leading-relaxed flex-grow">
-                {service.description}
-              </p>
-
-              {/* TODO: Replace with actual Booksy URL from Sebastian */}
-              <button
-                onClick={() => window.open('INSERT_BOOKSY_LINK_HERE', '_blank')}
-                className="btn-secondary w-full mt-auto"
-              >
-                Book Now
-              </button>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 p-8 bg-zinc-900/50 border-t-2 border-gold/30 rounded-lg text-center">
+          <p className="text-gray-300 text-sm leading-relaxed max-w-4xl mx-auto">
+            <span className="text-gold font-bold">*</span> Barber Sebastian Torres Confidence Guarantee - Join the{' '}
+            <button
+              onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
+              className="text-gold hover:text-yellow-400 underline font-semibold transition-colors"
+            >
+              BST Members Club
+            </button>
+            {' '}to receive member only rates for your services
+          </p>
         </div>
       </div>
     </section>

@@ -1,4 +1,3 @@
-// Updated: 2025-12-25
 import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -10,6 +9,7 @@ import Gallery from './components/Gallery'
 import Services from './components/Services'
 import ServiceGallery from './components/ServiceGallery'
 import ServiceModal from './components/ServiceModal'
+import GoogleReviewsBadge from './components/GoogleReviewsBadge'
 import FAQ from './components/FAQ'
 import BookingSection from './components/BookingSection'
 import Footer from './components/Footer'
@@ -17,11 +17,13 @@ import Lightbox from './components/Lightbox'
 import FloatingBookButton from './components/FloatingBookButton'
 import BackToTop from './components/BackToTop'
 import ScrollProgress from './components/ScrollProgress'
+import { ServiceStyle } from './lib/supabase'
 
 function App() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const [selectedCategory, setSelectedCategory] = useState<any>(null)
+  const [selectedStyle, setSelectedStyle] = useState<ServiceStyle | null>(null)
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth'
@@ -59,7 +61,8 @@ function App() {
       <Hero />
       {/* TEMPORARILY HIDDEN - About section now in Hero split-screen */}
       {/* <About /> */}
-      <Services />
+      <GoogleReviewsBadge />
+      <Services onStyleClick={setSelectedStyle} />
       <ServiceGallery onCategoryClick={setSelectedCategory} />
       <Testimonials />
       <Gallery onImageClick={openLightbox} />
@@ -81,8 +84,15 @@ function App() {
 
       {selectedCategory && (
         <ServiceModal
-          category={selectedCategory}
+          style={null}
           onClose={() => setSelectedCategory(null)}
+        />
+      )}
+
+      {selectedStyle && (
+        <ServiceModal
+          style={selectedStyle}
+          onClose={() => setSelectedStyle(null)}
         />
       )}
     </div>
