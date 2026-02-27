@@ -10,7 +10,7 @@ const About: React.FC = () => {
           <h3 className="text-white font-serif font-bold text-2xl md:text-3xl lg:text-4xl uppercase tracking-wider mb-3" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             My Cuts Boost
           </h3>
-          <h3 className="text-gold font-serif font-bold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wider mb-10" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+          <h3 className="text-gold font-serif font-bold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wider mb-16" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             Your
           </h3>
           <h3 className="text-white font-serif font-semibold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wide mb-2" style={{ textShadow: '0 0 1px #D4AF37, 0 0 1px #D4AF37, 1px 0 0 #D4AF37, -1px 0 0 #D4AF37, 0 1px 0 #D4AF37, 0 -1px 0 #D4AF37, 1px 1px 0 #D4AF37, -1px -1px 0 #D4AF37, 1px -1px 0 #D4AF37, -1px 1px 0 #D4AF37, 1.5px 0 0 #D4AF37, -1.5px 0 0 #D4AF37, 0 1.5px 0 #D4AF37, 0 -1.5px 0 #D4AF37, 1.5px 1.5px 0 #D4AF37, -1.5px -1.5px 0 #D4AF37, 1.5px -1.5px 0 #D4AF37, -1.5px 1.5px 0 #D4AF37, 2px 0 0 #D4AF37, -2px 0 0 #D4AF37, 0 2px 0 #D4AF37, 0 -2px 0 #D4AF37, 2px 2px 0 #D4AF37, -2px -2px 0 #D4AF37, 2px -2px 0 #D4AF37, -2px 2px 0 #D4AF37' }}>
