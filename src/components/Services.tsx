@@ -63,7 +63,7 @@ const Services: React.FC<ServicesProps> = ({ onStyleClick }) => {
               className="bg-zinc-950 border-2 border-zinc-800 rounded-lg overflow-hidden hover:border-gold/30 transition-all duration-300"
             >
               <div className="flex flex-col lg:flex-row">
-                <div className="lg:w-2/5 p-8 lg:p-10 flex flex-col justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-zinc-800">
+                <div className="lg:w-1/4 p-8 lg:p-10 flex flex-col justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-zinc-800">
                   <h3 className="text-3xl font-bold text-gold mb-4">
                     {offering.title}
                   </h3>
@@ -89,7 +89,7 @@ const Services: React.FC<ServicesProps> = ({ onStyleClick }) => {
                   </button>
                 </div>
 
-                <div className="lg:w-3/5 p-6 lg:p-8 flex items-center">
+                <div className="lg:w-3/4 p-6 lg:p-8 flex items-center">
                   <div className="relative w-full">
                     <button
                       onClick={() => scroll(offering.id, 'left')}
@@ -101,7 +101,7 @@ const Services: React.FC<ServicesProps> = ({ onStyleClick }) => {
 
                     <div
                       ref={(el) => scrollContainerRefs.current[offering.id] = el}
-                      className="flex gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gold/50 scrollbar-track-zinc-800 pb-2 px-8 lg:px-12"
+                      className="flex flex-col md:flex-row gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gold/50 scrollbar-track-zinc-800 pb-2 px-8 lg:px-12"
                       style={{ scrollbarWidth: 'thin' }}
                     >
                       {offering.styles.map((style) => (
