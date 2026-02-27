@@ -34,7 +34,7 @@ const GoogleReviewsBadge: React.FC = () => {
 
         <button
           onClick={() => window.open(GOOGLE_REVIEWS_URL, '_blank')}
-          className="inline-flex items-center gap-2 text-gold hover:text-white transition-colors text-base md:text-lg font-semibold group mt-6"
+          className="flex items-center justify-center gap-2 text-gold hover:text-white transition-colors text-base md:text-lg font-semibold group mt-6 mx-auto"
         >
           See All Google Reviews
           <ExternalLink className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
