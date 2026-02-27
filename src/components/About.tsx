@@ -16,7 +16,7 @@ const About: React.FC = () => {
           <h3 className="text-white font-serif font-semibold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wide mb-2" style={{ textShadow: '0 0 1px #D4AF37, 0 0 1px #D4AF37, 1px 0 0 #D4AF37, -1px 0 0 #D4AF37, 0 1px 0 #D4AF37, 0 -1px 0 #D4AF37, 1px 1px 0 #D4AF37, -1px -1px 0 #D4AF37, 1px -1px 0 #D4AF37, -1px 1px 0 #D4AF37, 1.5px 0 0 #D4AF37, -1.5px 0 0 #D4AF37, 0 1.5px 0 #D4AF37, 0 -1.5px 0 #D4AF37, 1.5px 1.5px 0 #D4AF37, -1.5px -1.5px 0 #D4AF37, 1.5px -1.5px 0 #D4AF37, -1.5px 1.5px 0 #D4AF37, 2px 0 0 #D4AF37, -2px 0 0 #D4AF37, 0 2px 0 #D4AF37, 0 -2px 0 #D4AF37, 2px 2px 0 #D4AF37, -2px -2px 0 #D4AF37, 2px -2px 0 #D4AF37, -2px 2px 0 #D4AF37' }}>
             [KON-FI-DUHNS]
           </h3>
-          <p className="text-base md:text-lg text-white font-bold uppercase mb-20">CONFIDENCE</p>
+          <p className="text-base md:text-lg text-white font-bold uppercase mb-40">CONFIDENCE</p>
           <p className="text-base md:text-lg text-white text-opacity-90 font-medium tracking-wide" style={{ fontFamily: '"Cinzel", serif' }}>Master Barber - LA Based</p>
         </div>
 
