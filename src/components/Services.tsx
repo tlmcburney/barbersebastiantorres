@@ -73,11 +73,11 @@ const Services: React.FC<ServicesProps> = ({ onStyleClick }) => {
                       </h3>
 
                       <div className="mb-6">
-                        <p className="text-4xl font-bold text-white mb-2">
-                          ${offering.regular_price}{' '}
-                          <span className="text-sm text-gold font-normal">
-                            (regularly priced at $60)
-                          </span>
+                        <p className="text-4xl font-bold text-white">
+                          ${offering.regular_price}
+                        </p>
+                        <p className="text-sm text-gold mt-1">
+                          (regularly priced at $60)
                         </p>
                       </div>
 
