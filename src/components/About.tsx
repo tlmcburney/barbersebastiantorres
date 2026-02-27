@@ -4,7 +4,21 @@ const About: React.FC = () => {
   return (
     <section id="about" className="py-24 px-4 bg-black fade-on-scroll opacity-0">
       <div className="max-w-6xl mx-auto">
-        <h2 className="section-title mb-16 text-gold">Meet Sebastian Torres</h2>
+        <h2 className="section-title mb-8 text-gold">Meet Sebastian Torres</h2>
+
+        <div className="text-center mb-12 flex flex-col items-center leading-none">
+          <h3 className="text-white font-serif font-bold text-2xl md:text-3xl lg:text-4xl uppercase tracking-wider -mb-1" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            My Cuts Boost
+          </h3>
+          <h3 className="text-gold font-serif font-bold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wider -mb-1" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            Your
+          </h3>
+          <h3 className="text-white font-serif font-semibold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wide mb-4" style={{ textShadow: '0 0 1px #D4AF37, 0 0 1px #D4AF37, 1px 0 0 #D4AF37, -1px 0 0 #D4AF37, 0 1px 0 #D4AF37, 0 -1px 0 #D4AF37, 1px 1px 0 #D4AF37, -1px -1px 0 #D4AF37, 1px -1px 0 #D4AF37, -1px 1px 0 #D4AF37, 1.5px 0 0 #D4AF37, -1.5px 0 0 #D4AF37, 0 1.5px 0 #D4AF37, 0 -1.5px 0 #D4AF37, 1.5px 1.5px 0 #D4AF37, -1.5px -1.5px 0 #D4AF37, 1.5px -1.5px 0 #D4AF37, -1.5px 1.5px 0 #D4AF37, 2px 0 0 #D4AF37, -2px 0 0 #D4AF37, 0 2px 0 #D4AF37, 0 -2px 0 #D4AF37, 2px 2px 0 #D4AF37, -2px -2px 0 #D4AF37, 2px -2px 0 #D4AF37, -2px 2px 0 #D4AF37' }}>
+            [KON-FI-DUHNS]
+          </h3>
+          <p className="section-title text-white text-opacity-80 mb-2">confidence</p>
+          <p className="section-title text-white text-opacity-80">Master Barber - LA Based</p>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
@@ -23,33 +37,13 @@ const About: React.FC = () => {
           </div>
 
           <div className="space-y-6">
-            <p className="text-gold text-xl font-semibold tracking-wide uppercase">
-              Master Barber • LA Based
-            </p>
-
             <p className="text-white text-lg leading-relaxed">
-              Sebastian Torres doesn't just cut hair—he engineers confidence. Every fade, every lineup, every hot towel shave is executed with precision that sets him apart in West Hollywood.
+              I'm in the business of [KON-FI-DUHNS]. Based in West Hollywood, I've built a studio where passion for grooming meets the high-energy pulse of the street. For me, it's not just about the clippers; it's about the integrity behind the craft. I pride myself on providing a professional, 5-star experience that bridges the gap between classic technique and modern urban style.
             </p>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              His clients don't just walk out looking sharp. They walk out feeling different. That's what seven years of obsessive attention to detail gets you. While other barbers rush to fit in more appointments, Sebastian takes the time to understand your hair texture, face shape, and style goals. The result? Cuts that look incredible and stay looking incredible.
+              From razor-sharp fades and textured cuts to the ritual of a classic hot towel shave, every service is a commitment to your image. Whether we're sculpting a well-defined beard or hitting a precision line-up, the goal remains the same: <span className="text-white font-semibold">Value</span>. What separates me from the rest isn't just the skill—it's the elevation you feel the second you step out of my chair.
             </p>
-
-            <p className="text-gray-300 text-lg leading-relaxed">
-              From classic gentleman's cuts to modern fades, beard sculpting to traditional hot lather shaves, Sebastian's range matches his expertise. But what keeps clients coming back isn't just the technical skill—it's the experience. Professional, personalized, and built around making you feel at ease from the moment you sit down.
-            </p>
-
-            <div className="pt-4 text-center flex flex-col items-center leading-none">
-              <h3 className="text-white font-serif font-bold text-2xl md:text-3xl lg:text-4xl uppercase tracking-wider -mb-1" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                My Cuts Boost
-              </h3>
-              <h3 className="text-gold font-serif font-bold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wider -mb-1" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                Your
-              </h3>
-              <h3 className="text-white font-serif font-semibold text-3xl md:text-5xl lg:text-6xl uppercase tracking-wide" style={{ textShadow: '0 0 1px #D4AF37, 0 0 1px #D4AF37, 1px 0 0 #D4AF37, -1px 0 0 #D4AF37, 0 1px 0 #D4AF37, 0 -1px 0 #D4AF37, 1px 1px 0 #D4AF37, -1px -1px 0 #D4AF37, 1px -1px 0 #D4AF37, -1px 1px 0 #D4AF37, 1.5px 0 0 #D4AF37, -1.5px 0 0 #D4AF37, 0 1.5px 0 #D4AF37, 0 -1.5px 0 #D4AF37, 1.5px 1.5px 0 #D4AF37, -1.5px -1.5px 0 #D4AF37, 1.5px -1.5px 0 #D4AF37, -1.5px 1.5px 0 #D4AF37, 2px 0 0 #D4AF37, -2px 0 0 #D4AF37, 0 2px 0 #D4AF37, 0 -2px 0 #D4AF37, 2px 2px 0 #D4AF37, -2px -2px 0 #D4AF37, 2px -2px 0 #D4AF37, -2px 2px 0 #D4AF37' }}>
-                [KON-FI-DUHNS]
-              </h3>
-            </div>
 
             {/* TODO: Replace with actual Booksy URL from Sebastian */}
             <div className="text-center">
