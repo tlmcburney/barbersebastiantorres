@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react'
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative h-screen overflow-hidden bg-black">
+    <section className="relative h-screen overflow-hidden bg-black pt-40 md:pt-44">
       {/* SPLIT SCREEN LAYOUT - Video Left, Bio Right */}
       <div className="h-full flex flex-col md:flex-row">
         {/* LEFT SIDE - Video (50% width on desktop, full on mobile top) */}
