@@ -7,7 +7,6 @@ import InstagramFeed from './components/InstagramFeed'
 import Testimonials from './components/Testimonials'
 import Gallery from './components/Gallery'
 import Services from './components/Services'
-import ServiceGallery from './components/ServiceGallery'
 import ServiceModal from './components/ServiceModal'
 import GoogleReviewsBadge from './components/GoogleReviewsBadge'
 import FAQ from './components/FAQ'
@@ -22,7 +21,6 @@ import { ServiceStyle } from './lib/supabase'
 function App() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
-  const [selectedCategory, setSelectedCategory] = useState<any>(null)
   const [selectedStyle, setSelectedStyle] = useState<ServiceStyle | null>(null)
 
   useEffect(() => {
@@ -63,7 +61,6 @@ function App() {
       {/* <About /> */}
       <GoogleReviewsBadge />
       <Services onStyleClick={setSelectedStyle} />
-      <ServiceGallery onCategoryClick={setSelectedCategory} />
       <Testimonials />
       <Gallery onImageClick={openLightbox} />
       <VideoShowcase />
@@ -79,13 +76,6 @@ function App() {
         <Lightbox
           startIndex={lightboxIndex}
           onClose={() => setLightboxOpen(false)}
-        />
-      )}
-
-      {selectedCategory && (
-        <ServiceModal
-          style={null}
-          onClose={() => setSelectedCategory(null)}
         />
       )}
 

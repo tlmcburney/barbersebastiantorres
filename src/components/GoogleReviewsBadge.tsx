@@ -9,8 +9,8 @@ const GoogleReviewsBadge: React.FC = () => {
   return (
     <section className="py-12 px-4 bg-zinc-950">
       <div className="max-w-4xl mx-auto text-center">
-        <div className="inline-flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 bg-black border-2 border-gold/30 rounded-lg px-6 md:px-10 py-6">
-          <div className="flex items-center justify-center md:w-32">
+        <div className="inline-flex flex-col items-center justify-center gap-4 bg-black border-2 border-gold/30 rounded-lg px-6 md:px-10 py-6">
+          <div className="flex items-center justify-center">
             <img
               src="/images/sq-google-g-logo-update_dezeen_2364_col_0.jpg"
               alt="Google Logo"
@@ -18,16 +18,12 @@ const GoogleReviewsBadge: React.FC = () => {
             />
           </div>
 
-          <div className="hidden md:block h-12 w-px bg-gold/30"></div>
-
           <div className="flex items-center gap-3">
             <Star className="w-8 h-8 md:w-10 md:h-10 fill-gold text-gold" />
             <span className="text-4xl md:text-5xl font-bold text-gold">{GOOGLE_RATING}</span>
           </div>
 
-          <div className="hidden md:block h-12 w-px bg-gold/30"></div>
-
-          <div className="text-center md:text-left">
+          <div className="text-center">
             <p className="text-2xl md:text-3xl font-bold text-white">{GOOGLE_REVIEW_COUNT} Reviews</p>
           </div>
         </div>
