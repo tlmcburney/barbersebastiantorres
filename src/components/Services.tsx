@@ -57,74 +57,151 @@ const Services: React.FC<ServicesProps> = ({ onStyleClick }) => {
         </p>
 
         <div className="space-y-12">
-          {offerings.map((offering) => (
-            <div
-              key={offering.id}
-              className="bg-zinc-950 border-2 border-zinc-800 rounded-lg overflow-hidden hover:border-gold/30 transition-all duration-300"
-            >
-              <div className="flex flex-col lg:flex-row">
-                <div className="lg:w-1/4 p-8 lg:p-10 flex flex-col justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-zinc-800">
-                  <h3 className="text-3xl font-bold text-gold mb-4">
-                    {offering.title}
-                  </h3>
+          {offerings.map((offering) => {
+            const isBSTEnrollment = offering.name === 'Haircuts'
 
-                  <div className="mb-6">
-                    <p className="text-4xl font-bold text-white mb-2">
-                      ${offering.regular_price}
-                    </p>
-                    <p className="text-xl text-gold">
-                      ${offering.member_price} <span className="text-sm text-gray-400">members*</span>
-                    </p>
-                  </div>
+            if (isBSTEnrollment) {
+              return (
+                <div
+                  key={offering.id}
+                  className="bg-zinc-950 border-2 border-zinc-800 rounded-lg overflow-hidden hover:border-gold/30 transition-all duration-300"
+                >
+                  <div className="flex flex-col lg:flex-row">
+                    <div className="lg:w-1/4 p-8 lg:p-10 flex flex-col justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-zinc-800">
+                      <h3 className="text-3xl font-bold text-gold mb-4">
+                        {offering.title}
+                      </h3>
 
-                  <p className="text-gray-300 mb-8 leading-relaxed text-lg">
-                    {offering.description}
-                  </p>
+                      <div className="mb-6">
+                        <p className="text-4xl font-bold text-white mb-2">
+                          ${offering.regular_price}{' '}
+                          <span className="text-sm text-gold font-normal">
+                            (regularly priced at $60)
+                          </span>
+                        </p>
+                      </div>
 
-                  <button
-                    onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
-                    className="btn-primary w-full lg:w-auto"
-                  >
-                    Book Now
-                  </button>
-                </div>
-
-                <div className="lg:w-3/4 p-6 lg:p-8 flex items-center">
-                  <div className="relative w-full">
-                    <button
-                      onClick={() => scroll(offering.id, 'left')}
-                      className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/80 border-2 border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300 hidden lg:block"
-                      aria-label="Scroll left"
-                    >
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
-
-                    <div
-                      ref={(el) => scrollContainerRefs.current[offering.id] = el}
-                      className="flex flex-col md:flex-row gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gold/50 scrollbar-track-zinc-800 pb-2 px-8 lg:px-12"
-                      style={{ scrollbarWidth: 'thin' }}
-                    >
-                      {offering.styles.map((style) => (
-                        <StyleCard
-                          key={style.id}
-                          style={style}
-                          onClick={() => onStyleClick(style)}
-                        />
-                      ))}
+                      <button
+                        onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
+                        className="btn-primary w-full lg:w-auto"
+                      >
+                        Book Now
+                      </button>
                     </div>
 
+                    <div className="lg:w-3/4 p-6 lg:p-8">
+                      <div className="mb-6 p-6 border-2 border-gold rounded-lg bg-zinc-900/50">
+                        <p className="text-gray-300 leading-relaxed text-base">
+                          {offering.description}
+                        </p>
+                      </div>
+
+                      <div className="relative w-full">
+                        <button
+                          onClick={() => scroll(offering.id, 'left')}
+                          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/80 border-2 border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300 hidden lg:block"
+                          aria-label="Scroll left"
+                        >
+                          <ChevronLeft className="w-5 h-5" />
+                        </button>
+
+                        <div
+                          ref={(el) => scrollContainerRefs.current[offering.id] = el}
+                          className="flex flex-col md:flex-row gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gold/50 scrollbar-track-zinc-800 pb-2 px-8 lg:px-12"
+                          style={{ scrollbarWidth: 'thin' }}
+                        >
+                          {offering.styles.map((style) => (
+                            <StyleCard
+                              key={style.id}
+                              style={style}
+                              onClick={() => onStyleClick(style)}
+                            />
+                          ))}
+                        </div>
+
+                        <button
+                          onClick={() => scroll(offering.id, 'right')}
+                          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/80 border-2 border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300 hidden lg:block"
+                          aria-label="Scroll right"
+                        >
+                          <ChevronRight className="w-5 h-5" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            }
+
+            return (
+              <div
+                key={offering.id}
+                className="bg-zinc-950 border-2 border-zinc-800 rounded-lg overflow-hidden hover:border-gold/30 transition-all duration-300"
+              >
+                <div className="flex flex-col lg:flex-row">
+                  <div className="lg:w-1/4 p-8 lg:p-10 flex flex-col justify-center border-b-2 lg:border-b-0 lg:border-r-2 border-zinc-800">
+                    <h3 className="text-3xl font-bold text-gold mb-4">
+                      {offering.title}
+                    </h3>
+
+                    <div className="mb-6">
+                      <p className="text-4xl font-bold text-white mb-2">
+                        ${offering.regular_price}
+                      </p>
+                      <p className="text-xl text-gold">
+                        ${offering.member_price} <span className="text-sm text-gray-400">members*</span>
+                      </p>
+                    </div>
+
+                    <p className="text-gray-300 mb-8 leading-relaxed text-lg">
+                      {offering.description}
+                    </p>
+
                     <button
-                      onClick={() => scroll(offering.id, 'right')}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/80 border-2 border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300 hidden lg:block"
-                      aria-label="Scroll right"
+                      onClick={() => window.open('https://calendar.app.google/BEhtXqMUscVqVvF68', '_blank')}
+                      className="btn-primary w-full lg:w-auto"
                     >
-                      <ChevronRight className="w-5 h-5" />
+                      Book Now
                     </button>
+                  </div>
+
+                  <div className="lg:w-3/4 p-6 lg:p-8 flex items-center">
+                    <div className="relative w-full">
+                      <button
+                        onClick={() => scroll(offering.id, 'left')}
+                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/80 border-2 border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300 hidden lg:block"
+                        aria-label="Scroll left"
+                      >
+                        <ChevronLeft className="w-5 h-5" />
+                      </button>
+
+                      <div
+                        ref={(el) => scrollContainerRefs.current[offering.id] = el}
+                        className="flex flex-col md:flex-row gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gold/50 scrollbar-track-zinc-800 pb-2 px-8 lg:px-12"
+                        style={{ scrollbarWidth: 'thin' }}
+                      >
+                        {offering.styles.map((style) => (
+                          <StyleCard
+                            key={style.id}
+                            style={style}
+                            onClick={() => onStyleClick(style)}
+                          />
+                        ))}
+                      </div>
+
+                      <button
+                        onClick={() => scroll(offering.id, 'right')}
+                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/80 border-2 border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300 hidden lg:block"
+                        aria-label="Scroll right"
+                      >
+                        <ChevronRight className="w-5 h-5" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         <div className="mt-16 p-8 bg-zinc-900/50 border-t-2 border-gold/30 rounded-lg text-center">
