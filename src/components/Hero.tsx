@@ -51,23 +51,7 @@ const Hero: React.FC = () => {
         {/* RIGHT SIDE - Meet Sebastian Bio (50% width on desktop, full on mobile bottom) */}
         <div className="relative w-full md:w-1/2 h-1/2 md:h-full bg-black overflow-y-auto">
           <div className="h-full flex items-center px-6 md:px-8 lg:px-12 py-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
-              {/* Sebastian's Image */}
-              <div className="relative">
-                <div className="aspect-[4/5] bg-zinc-900 rounded-lg overflow-hidden">
-                  <img
-                    src="/images/F8735A20-DD0A-412D-BAB5-F43F333784F8.jpeg"
-                    alt="Barber Sebastian Torres"
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    decoding="async"
-                    width="600"
-                    height="750"
-                  />
-                </div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-gold rounded-lg -z-10"></div>
-              </div>
-
+            <div className="space-y-6 w-full">
               {/* Bio Content */}
               <div className="space-y-4 md:space-y-6">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gold" style={{ fontFamily: '"Cinzel", serif' }}>
@@ -110,6 +94,22 @@ const Hero: React.FC = () => {
                     Book With Sebastian
                   </button>
                 </div>
+              </div>
+
+              {/* Sebastian's Image - Below Text */}
+              <div className="relative max-w-md mx-auto">
+                <div className="aspect-[4/5] bg-zinc-900 rounded-lg overflow-hidden">
+                  <img
+                    src="/images/F8735A20-DD0A-412D-BAB5-F43F333784F8.jpeg"
+                    alt="Barber Sebastian Torres"
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                    decoding="async"
+                    width="600"
+                    height="750"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-gold rounded-lg -z-10"></div>
               </div>
             </div>
           </div>
